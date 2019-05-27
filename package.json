@@ -2,7 +2,11 @@
     "name": "reacttypescript",
     "version": "1.0.0",
     "description": "learn react using typescript",
-    "main": ".eslintrc.js",
+    "main": "",
+    "pre-commit": [
+        "precommit-msg",
+        "precommit"
+    ],
     "scripts": {
         "dev": "node_modules/.bin/webpack-dev-server --progress --config etc/webpack/webpack.config.development.js",
         "prod": "node_modules/.bin/webpack --config etc/webpack/webpack.config.production.js",
@@ -110,11 +114,11 @@
         "collectCoverage": true,
         "testURL": "http://localhost/",
         "collectCoverageFrom": [
-            "src/**/*.{js,jsx}",
-            "!.storybook/**/*.{js,jsx}",
-            "!src/app.js",
-            "!src/components/themes/**/*.{js,jsx}",
-            "!src/**/*.stories.{js,jsx}",
+            "src/**/*.{js,jsx,ts,tsx}",
+            "!.storybook/**/*.{js,jsx,ts,tsx}",
+            "!src/app.tsx",
+            "!src/components/themes/**/*.{js,jsx,ts,tsx}",
+            "!src/**/*.stories.{js,jsx,ts,tsx}",
             "!dist/**/*.js",
             "!dist/*.js",
             "!src/*.scss",
@@ -130,11 +134,15 @@
         "moduleFileExtensions": [
             "js",
             "jsx",
-            "es6"
+            "es6",
+            "ts",
+            "tsx"
         ],
         "transform": {
             "^.+\\.js$": "babel-jest",
             "^.+\\.jsx$": "babel-jest",
+            "^.+\\.ts$": "babel-jest",
+            "^.+\\.tsx$": "babel-jest",
             "^.+\\.es6$": "babel-jest"
         },
         "transformIgnorePatterns": [
