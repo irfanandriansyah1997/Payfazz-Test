@@ -5,7 +5,10 @@
     "main": ".eslintrc.js",
     "scripts": {
         "dev": "node_modules/.bin/webpack-dev-server --progress --config etc/webpack/webpack.config.development.js",
-        "prod": "node_modules/.bin/webpack --config etc/webpack/webpack.config.production.js"
+        "prod": "node_modules/.bin/webpack --config etc/webpack/webpack.config.production.js",
+        "lint": "node_modules/.bin/eslint --ext .js,.jsx,.ts,.tsx src",
+        "precommit-msg": "echo 'Pre-commit checks...' && exit 0",
+        "precommit": "npm run lint"
     },
     "repository": {
         "type": "git",

@@ -33,7 +33,7 @@ module.exports = {
         'import/prefer-default-export': [0],
         'import/resolver': {
             node: {
-                extensions: ['.js', '.jsx', '.vue', '.es6']
+                extensions: ['.js', '.jsx', '.ts', '.tsx', '.es6']
             }
         },
         'linebreak-style': [2, 'unix'],
@@ -70,7 +70,7 @@ module.exports = {
         'react/jsx-filename-extension': [
             1,
             {
-                extensions: ['.js', '.jsx']
+                extensions: ['.js', '.jsx', '.ts', '.tsx']
             }
         ],
         'react/jsx-indent': [1, 4]
