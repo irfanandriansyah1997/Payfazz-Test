@@ -11,6 +11,7 @@
         "dev": "node_modules/.bin/webpack-dev-server --progress --config etc/webpack/webpack.config.development.js",
         "prod": "node_modules/.bin/webpack --config etc/webpack/webpack.config.production.js",
         "lint": "node_modules/.bin/eslint --ext .js,.jsx,.ts,.tsx src",
+        "test": "jest --verbose src",
         "precommit-msg": "echo 'Pre-commit checks...' && exit 0",
         "precommit": "npm run lint"
     },
@@ -35,13 +36,18 @@
         "@babel/preset-stage-2": "^7.0.0",
         "@babel/runtime": "^7.4.4",
         "@types/classnames": "^2.2.7",
+        "@types/enzyme": "^3.9.3",
+        "@types/enzyme-adapter-react-16": "^1.0.5",
         "@types/history": "^4.7.2",
+        "@types/jest": "^24.0.13",
         "@types/node": "^10.12.18",
         "@types/react": "^16.8.2",
         "@types/react-dom": "^16.8.0",
         "@types/react-redux": "^7.0.0",
         "@types/react-router": "^4.4.3",
+        "@types/react-test-renderer": "^16.8.1",
         "@types/redux-actions": "2.3.1",
+        "@types/styled-components": "^4.1.15",
         "@types/webpack": "^4.4.23",
         "@types/webpack-env": "1.13.6",
         "babel-eslint": "^7.2.3",
@@ -51,7 +57,8 @@
         "copy-webpack-plugin": "^4.6.0",
         "css-loader": "^2.1.0",
         "enzyme": "^3.9.0",
-        "enzyme-adapter-react-16": "^1.12.1",
+        "enzyme-adapter-react-16": "^1.13.2",
+        "enzyme-to-json": "^3.3.5",
         "eslint": "^5.11.1",
         "eslint-config-airbnb": "^17.1.0",
         "eslint-config-airbnb-base": "^13.1.0",
@@ -65,7 +72,7 @@
         "eslint-plugin-standard": "^4.0.0",
         "express": "^4.16.4",
         "html-webpack-plugin": "^4.0.0-beta.5",
-        "jest": "^24.7.1",
+        "jest": "^24.8.0",
         "jest-canvas-mock": "^1.1.0",
         "jest-styled-components": "^6.3.1",
         "jsdom": "^13.1.0",
@@ -85,6 +92,7 @@
         "styled-components-test-utils": "^1.0.2",
         "stylus": "^0.54.5",
         "stylus-loader": "^3.0.2",
+        "ts-jest": "^24.0.2",
         "ts-loader": "^6.0.1",
         "uglify-es": "^3.3.9",
         "uglifyjs-webpack-plugin": "^2.1.1",
@@ -141,12 +149,18 @@
         "transform": {
             "^.+\\.js$": "babel-jest",
             "^.+\\.jsx$": "babel-jest",
-            "^.+\\.ts$": "babel-jest",
-            "^.+\\.tsx$": "babel-jest",
+            "^.+\\.ts$": "ts-jest",
+            "^.+\\.tsx$": "ts-jest",
             "^.+\\.es6$": "babel-jest"
         },
         "transformIgnorePatterns": [
             "node_modules/"
+        ],
+        "snapshotSerializers": [
+            "enzyme-to-json/serializer"
+        ],
+        "setupFilesAfterEnv": [
+            "<rootDir>/etc/jest/enzyme.config.ts"
         ]
     }
 }
