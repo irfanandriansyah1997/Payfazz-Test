@@ -1,6 +1,7 @@
 # React Typescript
 
 [![CircleCI](https://circleci.com/gh/irfanandriansyah1997/ReactTypescript/tree/master.svg?style=svg)](https://circleci.com/gh/irfanandriansyah1997/ReactTypescript/tree/master)
+[![codecov](https://codecov.io/gh/irfanandriansyah1997/ReactTypescript/branch/master/graph/badge.svg)](https://codecov.io/gh/irfanandriansyah1997/ReactTypescript)
 
 create component & landing page using react js & redux
 
