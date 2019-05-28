@@ -1,13 +1,16 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-let a: any = {
-    data: 'asasa'
-};
-a = {
-    ...a,
-    hai: 'asasas'
-};
-console.log(a);
+import { ThemeProvider } from 'styled-components';
+import theme from '@/component/themes/default';
+import Button from '@/component/atoms/button/button.component';
 
-ReactDOM.render(<div>Hello Worlds</div>, document.getElementById('app'));
+ReactDOM.render(
+    <ThemeProvider theme={theme}>
+        <div>
+            <h1>Hai</h1>
+            <Button />
+        </div>
+    </ThemeProvider>,
+    document.getElementById('app')
+);
