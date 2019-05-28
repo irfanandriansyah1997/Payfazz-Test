@@ -5,6 +5,8 @@ ignore:
     - "**/etc/.*"
     - "**/src/app.js"
     - "**/themes/.*"
+    - "**/interfaces/.*"
+    - "**/types/.*"
     - "**/routes/.*"
     - "**/.circleci/.*"
     - "**/*.stories.tsx"
