@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Component, ReactNode } from 'react';
 import * as PropTypes from 'prop-types';
-import * as Highlight from 'react-highlight';
+import Highlight from 'react-highlight';
 
 import './style.scss';
 
@@ -56,7 +56,7 @@ class CodingComponent extends Component<props> {
                             <i className="material-icons">file_copy</i>Copy
                         </a>
                     </div>
-                    <Highlight>{code}</Highlight>
+                    <Highlight className="hello">{code}</Highlight>
                 </div>
             </div>
         );
