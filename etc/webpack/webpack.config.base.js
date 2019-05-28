@@ -132,12 +132,5 @@ module.exports = {
             fileWhitelist: [/\.css/],
             fileBlacklist: [/\.js/]
         })
-        // new CopyWebpackPlugin([
-        //     {
-        //         from: utils.resolve('static/font'),
-        //         to: utils.resolve('dist/static/font'),
-        //         toType: 'dir'
-        //     }
-        // ])
     ]
 };

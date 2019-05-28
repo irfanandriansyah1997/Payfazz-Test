@@ -13,9 +13,12 @@
         "strict": true,
         "outDir": "build",
         "lib": ["es6", "es7", "dom"],
-        "baseUrl": "src",
+        "baseUrl": "./",
         "paths": {
-            "@/*": ["./*"]
+            "@/*": ["./src/*"],
+            "storybook/*": ["./.storybook/component/*"],
+            "storybook-atom/*": ["./.storybook/component/atoms/*"],
+            "storybook-template/*": ["./.storybook/component/templates/*"]
         }
     },
     "exclude": ["build", "node_modules"]
