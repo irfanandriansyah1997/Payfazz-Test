@@ -5,6 +5,8 @@
  */
 
 import { css } from 'styled-components';
+import { ThemeInterface } from '@/interfaces/theme.interface';
+import { DefaultDynamicArrayList } from '@/interfaces/object.interface';
 
 /**
  * To set font family
@@ -111,3 +113,66 @@ export const fontFace = (
     ${textAlign(paramTextAlign === null ? 'initial' : paramTextAlign)}
     ${fontColor(paramFontColor)}
 `;
+
+
+/**
+ * To set style for heading
+ * @param  {string} selector
+ */
+export const generateHeadingStyle = (
+    selector: string,
+    theme: ThemeInterface
+) => {
+    const fontsize = theme.size.fontSizeHeading[
+        `heading${selector.charAt(0).toUpperCase()}${selector.slice(1)}`
+    ];
+    const lineheight = theme.size.lineHeightHeading[
+        `lineHeading${selector.charAt(0).toUpperCase()}${selector.slice(1)}`
+    ];
+    const text: DefaultDynamicArrayList = {
+        h1: {
+            fontWeight: 'bold'
+        },
+        h2: {
+            fontWeight: 'bold'
+        },
+        h3: {
+            fontWeight: 'bold'
+        },
+        h4: {
+            fontWeight: 'bold'
+        },
+        h5: {
+            fontWeight: 'bold'
+        },
+        h6: {
+            fontWeight: 'bold'
+        },
+        normal: {
+            fontWeight: 'normal'
+        },
+        featured: {
+            fontWeight: 'normal'
+        },
+        meta: {
+            fontWeight: 'normal'
+        },
+        caption: {
+            fontWeight: 'bold'
+        }
+    };
+
+    return css`
+        ${fontFace(
+        theme.typography.primary,
+        fontsize,
+        text[selector].fontWeight,
+        'normal',
+        'normal',
+        lineheight,
+        'normal',
+        'initial',
+        theme.palette.grayscale[0]
+    )}
+    `;
+};

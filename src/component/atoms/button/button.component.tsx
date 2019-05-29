@@ -27,7 +27,12 @@ class Button extends React.Component<ButtonProps> {
         position: PropTypes.string,
         shadow: PropTypes.bool,
         size: PropTypes.oneOf(['default', 'small']),
-        buttonType: PropTypes.oneOf(['primary', 'secondary', 'tertiary']).isRequired
+        buttonType: PropTypes.oneOf(['primary', 'secondary', 'tertiary']).isRequired,
+        children: PropTypes.oneOfType([
+            PropTypes.arrayOf(PropTypes.node),
+            PropTypes.node,
+            PropTypes.string
+        ]).isRequired
     };
 
     static defaultProps = {
@@ -40,9 +45,11 @@ class Button extends React.Component<ButtonProps> {
     };
 
     render(): React.ReactNode {
+        const { children } = this.props;
+
         return (
             <Style as="button" {...this.props}>
-                Hello
+                { children }
             </Style>
         );
     }

@@ -16,16 +16,23 @@ const themes = [defaultTheme];
  * Component
  */
 import ButtonStorybook from '@/component/atoms/button/storybook/button.component.stories';
+import TextStorybook from '@/component/atoms/text/storybook/text.component.stories';
 
 /**
  * Markdown
  */
 import ButtonMD from '@/component/atoms/button/storybook/docs.md';
+import TextMD from '@/component/atoms/text/storybook/docs.md';
 
 storiesOf('Atomic Component', module)
     .addDecorator(withThemesProvider(themes))
     .add('Button', () => <ButtonStorybook />, {
         notes: {
             markdown: ButtonMD
+        }
+    })
+    .add('Text', () => <TextStorybook />, {
+        notes: {
+            markdown: TextMD
         }
     });
