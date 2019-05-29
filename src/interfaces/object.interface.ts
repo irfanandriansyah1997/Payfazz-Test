@@ -7,3 +7,7 @@ export interface DefaultPropsInterface {
 export interface DefaultDynamicObject {
     [key: string]: any;
 }
+
+export interface DefaultDynamicArrayList extends DefaultDynamicObject {
+    [key: string]: any;
+}
