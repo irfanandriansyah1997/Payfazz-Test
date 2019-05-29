@@ -15,7 +15,7 @@ it('Test render button primary', (): void => {
     const component = renderer
         .create(
             <ThemeProvider theme={Theme}>
-                <Button buttonType="primary" />
+                <Button buttonType="primary">Ini Button</Button>
             </ThemeProvider>
         )
         .toJSON();
@@ -48,7 +48,7 @@ it('Test render button secondary', (): void => {
     const component = renderer
         .create(
             <ThemeProvider theme={Theme}>
-                <Button buttonType="secondary" />
+                <Button buttonType="secondary">Ini Button</Button>
             </ThemeProvider>
         )
         .toJSON();
@@ -72,7 +72,7 @@ it('Test render button tertiary', (): void => {
     const component = renderer
         .create(
             <ThemeProvider theme={Theme}>
-                <Button buttonType="tertiary" />
+                <Button buttonType="tertiary">Ini Button</Button>
             </ThemeProvider>
         )
         .toJSON();
@@ -95,7 +95,7 @@ it('Test render button primary with outline', (): void => {
     const component = renderer
         .create(
             <ThemeProvider theme={Theme}>
-                <Button buttonType="primary" outline />
+                <Button buttonType="primary" outline>Ini Button</Button>
             </ThemeProvider>
         )
         .toJSON();
@@ -119,7 +119,7 @@ it('Test render button secondary with outline', (): void => {
     const component = renderer
         .create(
             <ThemeProvider theme={Theme}>
-                <Button buttonType="secondary" outline />
+                <Button buttonType="secondary" outline>Ini Button</Button>
             </ThemeProvider>
         )
         .toJSON();
@@ -143,7 +143,7 @@ it('Test render button secondary with box shadow', (): void => {
     const component = renderer
         .create(
             <ThemeProvider theme={Theme}>
-                <Button buttonType="secondary" shadow />
+                <Button buttonType="secondary" shadow>Ini Button</Button>
             </ThemeProvider>
         )
         .toJSON();
@@ -170,14 +170,14 @@ it('Test render button disabled', (): void => {
     const component = renderer
         .create(
             <ThemeProvider theme={Theme}>
-                <Button buttonType="secondary" disable />
+                <Button buttonType="secondary" disable>Ini Button</Button>
             </ThemeProvider>
         )
         .toJSON();
     const component2 = renderer
         .create(
             <ThemeProvider theme={Theme}>
-                <Button buttonType="secondary" disable outline size="small" />
+                <Button buttonType="secondary" disable outline size="small">Ini Button</Button>
             </ThemeProvider>
         )
         .toJSON();
