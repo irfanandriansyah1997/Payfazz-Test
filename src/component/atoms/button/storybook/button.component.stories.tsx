@@ -51,8 +51,8 @@ export interface stateTypes extends DefaultDynamicObject {
         size?: string,
         text?: string | React.ReactNode,
         type?:string
-    ): any
-};
+    ): any;
+}
 
 class ButtonStorybook extends React.Component<DefaultDynamicObject, stateTypes> {
     constructor(props: DefaultDynamicObject) {
