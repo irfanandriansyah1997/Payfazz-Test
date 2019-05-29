@@ -24,7 +24,7 @@ class CodingComponent extends Component<props> {
         parent: false
     };
 
-    constructor(props) {
+    constructor(props: props) {
         super(props);
         this.copyToClipboard = this.copyToClipboard.bind(this);
     }

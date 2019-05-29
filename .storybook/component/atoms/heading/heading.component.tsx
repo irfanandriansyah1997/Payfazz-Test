@@ -6,7 +6,7 @@ import { DefaultPropsInterface, DefaultDynamicObject } from '@/interfaces/object
 import './style.scss';
 
 interface props extends DefaultPropsInterface {
-    parent: boolean;
+    parent?: boolean;
 }
 
 class HeadingComponent extends Component<props> {

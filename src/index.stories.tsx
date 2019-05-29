@@ -6,17 +6,26 @@
 
 /* eslint-disable */
 import * as React from 'react';
+import { withThemesProvider } from 'storybook-addon-styled-component-theme';
 import { storiesOf } from '@storybook/react';
-import Template from 'storybook-template/default-template/default-template.component';
+import defaultTheme from '@/component/themes/default';
 
-storiesOf('Atomic Component', module).add(
-    'Badges',
-    () => (
-        <Template componentName="Badges" description="asasa">
-            Hello 1 2 3
-        </Template>
-    ),
-    {
-        notes: 'ini notes'
-    }
-);
+const themes = [defaultTheme];
+
+/**
+ * Component
+ */
+import ButtonStorybook from '@/component/atoms/button/storybook/button.component.stories';
+
+/**
+ * Markdown
+ */
+import ButtonMD from '@/component/atoms/button/storybook/docs.md';
+
+storiesOf('Atomic Component', module)
+    .addDecorator(withThemesProvider(themes))
+    .add('Button', () => <ButtonStorybook />, {
+        notes: {
+            markdown: ButtonMD
+        }
+    });

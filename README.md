@@ -40,3 +40,6 @@ To build new asset using webpack
 ```
 npm run prod
 ```
+
+### Current Component
+if you want to know current component in this project you can open [our documentation](http://irfanandriansyah1997.github.io/ReactTypescript)

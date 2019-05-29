@@ -78,6 +78,63 @@ jobs:
       - run:
           name: Set codecov
           command: node_modules/.bin/codecov --token=8eb82c4c-18c9-4a02-bf1f-b62573450261
+  deploy:
+    filters:
+      branches:
+        ignore:
+          - gh-pages
+    docker:
+      - image: circleci/node:8.11
+    working_directory: ~/repo
+    environment:
+      - SOURCE_BRANCH: master
+      - TARGET_BRANCH: gh-pages
+      - GH_EMAIL: irfanandriansyah10@gmail.com
+      - GH_NAME: Irfan Andriansyah
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+      - add_ssh_keys:
+          fingerprints:
+            - '1a:5f:13:89:c0:c1:3c:e9:08:90:71:99:a4:ad:de:ec'
+      - run:
+          name: Install dependencies
+          command: yarn install
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+      - deploy:
+          name: Deploy
+          command: |
+            if [ $CIRCLE_BRANCH == $SOURCE_BRANCH ]; then
+              git config --global user.email $GH_EMAIL
+              git config --global user.name $GH_NAME
+
+              git clone $CIRCLE_REPOSITORY_URL out
+
+              cd out
+              mkdir -p out/storybook-docs
+              git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
+              git rm -rf .
+              cd ..
+
+              mkdir -p /home/circleci/repo/static/img
+              yarn build-storybook
+
+              cp -a storybook-docs/. out/.
+
+              mkdir -p out/.circleci && cp -a .circleci/. out/.circleci/.
+              cd out
+
+              git add -A
+              git commit -m "Deployed storybook to GitHub Pages: ${CIRCLE_SHA1}" --allow-empty
+
+              git push origin $TARGET_BRANCH
+            fi
 workflows:
   version: 2
   build:
@@ -101,3 +158,11 @@ workflows:
                 - gh-pages
           requires:
             - build
+      - deploy:
+          filters:
+            branches:
+              ignore:
+                - gh-pages
+          requires:
+            - linter
+            - test

@@ -5,11 +5,14 @@ module.exports = {
         jasmine: true,
         jest: true
     },
-    plugins: [],
-    extends: ['airbnb'],
-    parser: 'babel-eslint',
+    plugins: [
+        '@typescript-eslint'
+    ],
+    extends: ['airbnb', 'plugin:@typescript-eslint/recommended'],
+    parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaVersion: 6,
+        typescript: true,
         sourceType: 'module',
         ecmaFeatures: {
             experimentalObjectRestSpread: true,
@@ -87,11 +90,29 @@ module.exports = {
             }
         ],
         'react/jsx-indent': [1, 4],
-        "space-infix-ops": [0]
+        "space-infix-ops": [0],
+        '@typescript-eslint/no-var-requires': 0,
+        '@typescript-eslint/camelcase': 0,
+        '@typescript-eslint/no-unused-vars': 0,
+        '@typescript-eslint/explicit-member-accessibility': 0,
+        '@typescript-eslint/explicit-function-return-type': 0,
+        '@typescript-eslint/no-explicit-any': 0, // would prefer to enable this
+        '@typescript-eslint/no-use-before-define': 0, // this is duplicated
+        '@typescript-eslint/interface-name-prefix': 0, // I don't agree
     },
     globals: {
         document: false,
         window: true,
         Image: true
-    }
+    },
+    overrides: [
+        {
+            files: ['**/*.d.ts'],
+            rules: {
+                'vars-on-top': 0,
+                'no -var': 0, // this is how typescript works
+                'spaced-comment': 0,
+            }
+        },
+    ]
 };

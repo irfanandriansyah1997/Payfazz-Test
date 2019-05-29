@@ -9,10 +9,9 @@ import * as renderer from 'react-test-renderer';
 import { ThemeProvider } from 'styled-components';
 import Button from './button.component';
 import Theme from '@/component/themes/default';
-
 import 'jest-styled-components';
 
-it('Test render button primary', () => {
+it('Test render button primary', (): void => {
     const component = renderer
         .create(
             <ThemeProvider theme={Theme}>
@@ -45,7 +44,7 @@ it('Test render button primary', () => {
     expect(component).toHaveStyleRule('color', '#fff');
 });
 
-it('Test render button secondary', () => {
+it('Test render button secondary', (): void => {
     const component = renderer
         .create(
             <ThemeProvider theme={Theme}>
@@ -69,7 +68,7 @@ it('Test render button secondary', () => {
     expect(component).toHaveStyleRule('color', '#fff');
 });
 
-it('Test render button tertiary', () => {
+it('Test render button tertiary', (): void => {
     const component = renderer
         .create(
             <ThemeProvider theme={Theme}>
@@ -92,7 +91,7 @@ it('Test render button tertiary', () => {
     expect(component).toHaveStyleRule('color', '#3e4246', { modifier: ':hover' });
 });
 
-it('Test render button primary with outline', () => {
+it('Test render button primary with outline', (): void => {
     const component = renderer
         .create(
             <ThemeProvider theme={Theme}>
@@ -116,7 +115,7 @@ it('Test render button primary with outline', () => {
     expect(component).toHaveStyleRule('color', '#fff', { modifier: ':hover' });
 });
 
-it('Test render button secondary with outline', () => {
+it('Test render button secondary with outline', (): void => {
     const component = renderer
         .create(
             <ThemeProvider theme={Theme}>
@@ -140,7 +139,7 @@ it('Test render button secondary with outline', () => {
     expect(component).toHaveStyleRule('color', '#fff', { modifier: ':hover' });
 });
 
-it('Test render button secondary with box shadow', () => {
+it('Test render button secondary with box shadow', (): void => {
     const component = renderer
         .create(
             <ThemeProvider theme={Theme}>
@@ -167,7 +166,7 @@ it('Test render button secondary with box shadow', () => {
     );
 });
 
-it('Test render button disabled', () => {
+it('Test render button disabled', (): void => {
     const component = renderer
         .create(
             <ThemeProvider theme={Theme}>

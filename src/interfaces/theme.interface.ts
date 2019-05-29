@@ -6,10 +6,10 @@ export interface TypographyThemeInterface {
 }
 
 export interface PaletteThemeInterface {
-    primary: Array<string>;
-    secondary: Array<string>;
-    tertiary: Array<string>;
-    [key: string]: Array<string>;
+    primary: string[];
+    secondary: string[];
+    tertiary: string[];
+    [key: string]: string[];
 }
 
 export interface SizeThemeInterface {
