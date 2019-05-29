@@ -74,7 +74,7 @@ export const textAlign = (align: string = 'initial') => css`
  * To set font color
  * @param  {string} color
  */
-export const fontColor = (color: string) => css`
+export const fontColor = (color: string | null) => css`
     color: ${color};
 `;
 
@@ -99,7 +99,7 @@ export const fontFace = (
     paramLineHeight: string | number | null,
     paramLetterSpacing: string | number | null,
     paramTextAlign: string | null,
-    paramFontColor: string
+    paramFontColor: string | null
 ) => css`
     ${fontFamily(paramFontFamily)}
     ${fontSize(paramFontSize)}
