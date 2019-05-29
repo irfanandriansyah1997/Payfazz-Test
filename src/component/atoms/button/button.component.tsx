@@ -9,7 +9,7 @@ import * as PropTypes from 'prop-types';
 import Style from './style/style';
 import { DefaultPropsInterface } from '@/interfaces/object.interface';
 
-export interface propTypes extends DefaultPropsInterface {
+export interface ButtonProps extends DefaultPropsInterface {
     disable?: boolean;
     display?: string;
     outline?: boolean;
@@ -19,7 +19,7 @@ export interface propTypes extends DefaultPropsInterface {
     buttonType: 'primary' | 'secondary' | 'tertiary';
 }
 
-class Button extends React.Component<propTypes> {
+class Button extends React.Component<ButtonProps> {
     static propTypes = {
         disable: PropTypes.bool,
         display: PropTypes.string,
@@ -39,7 +39,7 @@ class Button extends React.Component<propTypes> {
         size: 'default'
     };
 
-    render() {
+    render(): React.ReactNode {
         return (
             <Style as="button" {...this.props}>
                 Hello

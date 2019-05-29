@@ -5,7 +5,7 @@
  */
 
 import styled, { css } from 'styled-components';
-import { propTypes } from '@/component/atoms/button/button.component.tsx';
+import { ButtonProps } from '@/component/atoms/button/button.component.tsx';
 import { rounded } from '@/styles/styled-component/mixins/border-radius.mixin';
 import { backgroundColor } from '@/styles/styled-component/mixins/background.mixin';
 import { PaletteThemeInterface, ThemeInterface } from '@/interfaces/theme.interface';
@@ -18,7 +18,7 @@ const getBackgroundStyle = (
     type: string,
     disable?: boolean,
     outline?: boolean
-) => {
+): any => {
     if (outline) {
         return css`
             ${backgroundColor(palette.white[0])}
@@ -40,7 +40,11 @@ const getBackgroundStyle = (
     `;
 };
 
-const getBorderStyle = (palette: PaletteThemeInterface, type: string, disable?: boolean) => {
+const getBorderStyle = (
+    palette: PaletteThemeInterface,
+    type: string,
+    disable?: boolean
+): any => {
     if (type !== 'tertiary') {
         return css`
             border: 1px solid ${palette[type][disable ? 2 : 0]};
@@ -57,7 +61,7 @@ const getBorderStyle = (palette: PaletteThemeInterface, type: string, disable?: 
     `;
 };
 
-const getBoxShadowStyle = (shadow?: boolean) => {
+const getBoxShadowStyle = (shadow?: boolean): any => {
     if (shadow) {
         return css`
             ${boxShadow(css`
@@ -81,7 +85,7 @@ const getBoxShadowStyle = (shadow?: boolean) => {
     `;
 };
 
-const getFontStyle = (theme: ThemeInterface, size?: string) => css`
+const getFontStyle = (theme: ThemeInterface, size?: string): any => css`
     ${fontFace(
         theme.typography.primary,
         size === 'default'
@@ -102,7 +106,7 @@ const getFontColor = (
     type: string,
     disable?: boolean,
     outline?: boolean
-) => {
+): any => {
     if (outline) {
         return css`
             ${fontColor(palette[`${type}Text`][disable ? 3 : 2])}
@@ -124,7 +128,7 @@ const getFontColor = (
     `;
 };
 
-const ButtonComponent = styled.button<propTypes>`
+const ButtonComponent = styled.button<ButtonProps>`
     position: ${({ position }) => position}
     display: ${({ display }) => display};
     height: ${(props) => (props.size === 'default' ? '41px' : '32px')};

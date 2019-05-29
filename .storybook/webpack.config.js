@@ -12,7 +12,8 @@ module.exports = async ({ config, mode }) => {
         '.styl',
         '.less',
         '.sass',
-        '.css'
+        '.css',
+        '.md'
     );
     config.resolve.alias = {
         ...config.resolve.alias,
