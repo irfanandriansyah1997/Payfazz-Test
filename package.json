@@ -10,6 +10,7 @@
     "scripts": {
         "dev": "node_modules/.bin/webpack-dev-server --progress --config etc/webpack/webpack.config.development.js",
         "prod": "node_modules/.bin/webpack --config etc/webpack/webpack.config.production.js",
+        "build-storybook": "build-storybook -c .storybook -o storybook-docs",
         "lint": "node_modules/.bin/eslint --ext .js,.jsx,.ts,.tsx src",
         "test": "jest --verbose src",
         "storybook": "start-storybook -p 5000",
