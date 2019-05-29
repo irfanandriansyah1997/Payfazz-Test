@@ -51,6 +51,19 @@ module.exports = {
             }
         ],
         'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+        "no-mixed-operators": [
+            "error",
+            {
+                "groups": [
+                    ["+", "-", "*", "/", "%", "**"],
+                    ["&", "|", "^", "~", "<<", ">>", ">>>"],
+                    ["==", "!=", "===", "!==", ">", ">=", "<", "<="],
+                    ["&&", "||"],
+                    ["in", "instanceof"]
+                ],
+                "allowSamePrecedence": true
+            }
+        ],
         'no-underscore-dangle': [0],
         'no-unused-vars': [
             0,
@@ -73,7 +86,8 @@ module.exports = {
                 extensions: ['.js', '.jsx', '.ts', '.tsx']
             }
         ],
-        'react/jsx-indent': [1, 4]
+        'react/jsx-indent': [1, 4],
+        "space-infix-ops": [0]
     },
     globals: {
         document: false,
