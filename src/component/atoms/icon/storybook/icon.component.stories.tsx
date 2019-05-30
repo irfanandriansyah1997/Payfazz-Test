@@ -18,6 +18,22 @@ const defaultIcon: Array<IconProps> = [
     {
         children: 'edit',
         size: 'default'
+    },
+    {
+        children: 'account_circle',
+        size: 'default'
+    },
+    {
+        children: 'delete_forever',
+        size: 'default'
+    },
+    {
+        children: 'g_translate',
+        size: 'default'
+    },
+    {
+        children: 'theaters',
+        size: 'default'
     }
 ];
 
