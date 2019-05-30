@@ -1,4 +1,4 @@
-import { DefaultDynamicArrayList } from '@/interfaces/object.interface.ts';
+import { DefaultDynamicObject } from '@/interfaces/object.interface.ts';
 
 export interface TypographyThemeInterface {
     primary: string;
@@ -13,11 +13,11 @@ export interface PaletteThemeInterface {
 }
 
 export interface SizeThemeInterface {
-    fontSize: DefaultDynamicArrayList;
-    fontSizeHeading: DefaultDynamicArrayList;
-    lineHeightHeading: DefaultDynamicArrayList;
-    buttonFontSize: DefaultDynamicArrayList;
-    spacingSize: DefaultDynamicArrayList;
+    fontSize: DefaultDynamicObject;
+    fontSizeHeading: DefaultDynamicObject;
+    lineHeightHeading: DefaultDynamicObject;
+    buttonFontSize: DefaultDynamicObject;
+    spacingSize: DefaultDynamicObject;
 }
 
 export interface ThemeInterface {

@@ -1,10 +1,10 @@
 import { SizeThemeInterface } from '@/interfaces/theme.interface.ts';
-import { DefaultDynamicArrayList } from '@/interfaces/object.interface.ts';
+import { DefaultDynamicObject } from '@/interfaces/object.interface.ts';
 
 /*
  * variable font size
  */
-export const fontSize: DefaultDynamicArrayList = {
+export const fontSize: DefaultDynamicObject = {
     textSize3Xl: '32px',
     textSize2Xl: '24px',
     textSizeXl: '20px',
@@ -17,7 +17,7 @@ export const fontSize: DefaultDynamicArrayList = {
 /*
  * variable heading font size
  */
-export const fontSizeHeading: DefaultDynamicArrayList = {
+export const fontSizeHeading: DefaultDynamicObject = {
     headingH1: fontSize.textSize3Xl,
     headingH2: fontSize.textSize2Xl,
     headingH3: fontSize.textSizeXl,
@@ -33,7 +33,7 @@ export const fontSizeHeading: DefaultDynamicArrayList = {
 /*
  * variable heading line height
  */
-export const lineHeightHeading: DefaultDynamicArrayList = {
+export const lineHeightHeading: DefaultDynamicObject = {
     lineHeadingH1: '44px',
     lineHeadingH2: '33px',
     lineHeadingH3: '27px',
@@ -49,7 +49,7 @@ export const lineHeightHeading: DefaultDynamicArrayList = {
 /*
  * button font size
  */
-export const buttonFontSize: DefaultDynamicArrayList = {
+export const buttonFontSize: DefaultDynamicObject = {
     buttonFontDefault: fontSize.textSizeSm,
     buttonFontSmall: fontSize.textSizeXs
 };
@@ -57,7 +57,7 @@ export const buttonFontSize: DefaultDynamicArrayList = {
 /*
  * variable spacing padding & margin
  */
-export const spacingSize: DefaultDynamicArrayList = {
+export const spacingSize: DefaultDynamicObject = {
     spacing3Xl: '48px',
     spacing2Xl: '40px',
     spacingXl: '32px',

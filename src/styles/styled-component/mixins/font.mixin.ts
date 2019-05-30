@@ -6,7 +6,7 @@
 
 import { css } from 'styled-components';
 import { ThemeInterface } from '@/interfaces/theme.interface';
-import { DefaultDynamicArrayList } from '@/interfaces/object.interface';
+import { DefaultDynamicObject } from '@/interfaces/object.interface';
 
 /**
  * To set font family
@@ -129,7 +129,7 @@ export const generateHeadingStyle = (
     const lineheight = theme.size.lineHeightHeading[
         `lineHeading${selector.charAt(0).toUpperCase()}${selector.slice(1)}`
     ];
-    const text: DefaultDynamicArrayList = {
+    const text: DefaultDynamicObject = {
         h1: {
             fontWeight: 'bold'
         },
