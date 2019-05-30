@@ -21,7 +21,8 @@ const defaultButton: Array<ButtonProps> = [
         outline: false,
         shadow: false,
         size: 'default',
-        disable: false
+        disable: false,
+        onClick: () => {}
     },
     {
         buttonType: 'secondary',
@@ -29,7 +30,8 @@ const defaultButton: Array<ButtonProps> = [
         outline: false,
         shadow: false,
         size: 'default',
-        disable: false
+        disable: false,
+        onClick: () => {}
     },
     {
         buttonType: 'tertiary',
@@ -37,7 +39,8 @@ const defaultButton: Array<ButtonProps> = [
         outline: false,
         shadow: false,
         size: 'default',
-        disable: false
+        disable: false,
+        onClick: () => {}
     }
 ];
 

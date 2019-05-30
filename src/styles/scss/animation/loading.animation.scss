@@ -8,12 +8,45 @@
     }
 }
 
-@keyframes loading-circle {
+@keyframes loading-circle-full-color {
     0% {
         stroke-dashoffset: 0;
+        stroke: lighten(get-color(primary), 40);
     }
-
+    11% {
+        stroke-dashoffset: -66;
+        stroke: lighten(get-color(primary), 30);
+    }
+    22% {
+        stroke-dashoffset: -133;
+        stroke: lighten(get-color(primary), 20);
+    }
+    33% {
+        stroke-dashoffset: -200;
+        stroke: lighten(get-color(primary), 10);
+    }
+    44% {
+        stroke-dashoffset: -266;
+        stroke: get-color(primary);
+    }
+    55% {
+        stroke-dashoffset: -333;
+        stroke: get-color(primary);
+    }
+    66% {
+        stroke-dashoffset: -400;
+        stroke: lighten(get-color(primary), 10);
+    }
+    77% {
+        stroke-dashoffset: -466;
+        stroke: get-color(primary);
+    }
+    88% {
+        stroke-dashoffset: -533;
+        stroke: lighten(get-color(primary), 30);
+    }
     100% {
         stroke-dashoffset: -600;
+        stroke: lighten(get-color(primary), 40);
     }
 }

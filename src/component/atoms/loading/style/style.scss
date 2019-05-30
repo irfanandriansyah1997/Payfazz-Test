@@ -1,0 +1,58 @@
+@import '@/styles/scss/import.scss';
+
+.ui-atomic-loading {
+    $c: &;
+
+    position: absolute;
+    align-items: flex-start;
+    justify-content: center;
+    left: calc(50% - 25px);
+    display: none;
+    top: 5px;
+
+    @include transition(0.31s cubic-bezier(0.7, 0.3, 0, 1));
+    @include transform-translateY(-50%);
+
+    &__container {
+        z-index: 10;
+    }
+
+    @include padding(all, 5px);
+
+    &__container {
+        flex: 0 0 40px;
+        width: 40px;
+        min-width: 40px;
+        height: 40px;
+        overflow: hidden;
+
+        @include background-color(white);
+        @include rounded(50%);
+        @include box-shadow-multi(
+            0 10px 20px rgba(0, 0, 0, 0.05),
+            0 6px 6px rgba(0, 0, 0, 0.075)
+        );
+    }
+
+    &__circle {
+        width: 40px;
+        height: 40px;
+        animation: loading 1s linear infinite;
+
+        @include rounded(50%);
+        @include padding(all, 5px);
+
+        &__inner {
+            stroke: {
+                dashoffset: 0;
+                dasharray: 300;
+                width: 20;
+                miterlimit: 0;
+                linecap: round;
+            }
+            animation: loading-circle-full-color 1s linear infinite;
+            stroke: get-color(primary);
+            fill: transparent;
+        }
+    }
+}
