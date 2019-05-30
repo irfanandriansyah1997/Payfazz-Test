@@ -10,8 +10,8 @@ import { css } from 'styled-components';
  * Set rounded for border-radius attribute
  * @param  {int} size
  */
-export const rounded = (size: number) => css`
-    -webkit-border-radius: ${size}px;
-    -moz-border-radius: ${size}px;
-    border-radius: ${size}px;
+export const rounded = (size: string) => css`
+    -webkit-border-radius: ${size};
+    -moz-border-radius: ${size};
+    border-radius: ${size};
 `;

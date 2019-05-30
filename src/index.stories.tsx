@@ -16,6 +16,7 @@ const themes = [defaultTheme];
  * Component
  */
 import ButtonStorybook from '@/component/atoms/button/storybook/button.component.stories';
+import ButtonFABStorybook from '@/component/atoms/button-fab/storybook/button-fab.component.stories';
 import IconStorybook from '@/component/atoms/icon/storybook/icon.component.stories';
 import TextStorybook from '@/component/atoms/text/storybook/text.component.stories';
 
@@ -23,6 +24,7 @@ import TextStorybook from '@/component/atoms/text/storybook/text.component.stori
  * Markdown
  */
 import ButtonMD from '@/component/atoms/button/storybook/docs.md';
+import ButtonFABMD from '@/component/atoms/button-fab/storybook/docs.md';
 import IconMD from '@/component/atoms/icon/storybook/docs.md';
 import TextMD from '@/component/atoms/text/storybook/docs.md';
 
@@ -31,6 +33,11 @@ storiesOf('Atomic Component', module)
     .add('Button', () => <ButtonStorybook />, {
         notes: {
             markdown: ButtonMD
+        }
+    })
+    .add('Button Fab', () => <ButtonFABStorybook />, {
+        notes: {
+            markdown: ButtonFABMD
         }
     })
     .add('Icon', () => <IconStorybook />, {
