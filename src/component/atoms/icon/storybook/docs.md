@@ -14,7 +14,6 @@ return (
     <Icon
       color="#69acec"
       size="20px"
-      type="material"
   >
       edit
   </Icon>
@@ -28,4 +27,3 @@ berikut adalah dokumentasi props component
 |-------|-----------|---------|-----------|
 |color|String / Number|`#3e4246`|Anda dapat menggubah warna  secara spesifik. Bisa menggunakan warna css `(#033 atau rgba(255, 0, 0, 0.5))`.|
 |size|String / Number|`default`|Anda dapat mengatur ukuran font size di icon.|
-|type|String|`material`|Anda dapat memilih icon dari `material icon` atau `urbanindo icon`.|

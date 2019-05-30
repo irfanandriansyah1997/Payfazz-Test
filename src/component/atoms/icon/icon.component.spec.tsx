@@ -22,7 +22,6 @@ describe('Testing icon component in atomic component ', () => {
         expect(icon.hasClass('ui-atomic-icon--default')).toBe(true);
         expect(icon.hasClass('ui-atomic-icon--small')).toBe(false);
         expect(icon.hasClass('ui-atomic-icon--big')).toBe(false);
-        expect(icon.prop('style')).toHaveProperty('color', '#3e4246');
     });
 
     it('Test render icon with custom size', () => {

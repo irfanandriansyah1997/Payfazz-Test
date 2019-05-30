@@ -12,7 +12,7 @@ import 'jest-styled-components';
 
 it('Test render background grey', () => {
     const Style = styled.button`
-        ${rounded(5)}
+        ${rounded('5px')}
     `;
     const component = renderer.create(<Style />).toJSON();
     expect(component).toHaveStyleRule('border-radius', '5px');

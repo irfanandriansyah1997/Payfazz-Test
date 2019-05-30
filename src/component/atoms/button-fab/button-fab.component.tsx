@@ -1,23 +1,15 @@
 /**
- * Button Component
+ * Button FAB Component
  * @author Irfan Andriansyah <irfanandriansyah10@gmail.com>
- * @since 2019.05.13
+ * @since 2019.05.30
  */
 
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import Style from './style/style';
-import { DefaultPropsInterface } from '@/interfaces/object.interface';
+import { ButtonProps } from '@/component/atoms/button/button.component';
+import Icon from '@/component/atoms/icon/icon.component';
 
-export interface ButtonProps extends DefaultPropsInterface {
-    disable?: boolean;
-    display?: string;
-    outline?: boolean;
-    position?: string;
-    shadow?: boolean;
-    size?: 'default' | 'small' | string;
-    buttonType: 'primary' | 'secondary' | 'tertiary';
-}
+import Style from './style/style';
 
 class Button extends React.Component<ButtonProps> {
     static propTypes = {
@@ -26,7 +18,7 @@ class Button extends React.Component<ButtonProps> {
         outline: PropTypes.bool,
         position: PropTypes.string,
         shadow: PropTypes.bool,
-        size: PropTypes.oneOf(['default', 'small']),
+        size: PropTypes.oneOf(['default', 'small', 'large']),
         buttonType: PropTypes.oneOf(['primary', 'secondary', 'tertiary']).isRequired,
         children: PropTypes.oneOfType([
             PropTypes.arrayOf(PropTypes.node),
@@ -49,7 +41,9 @@ class Button extends React.Component<ButtonProps> {
 
         return (
             <Style as="button" {...this.props}>
-                { children }
+                <Icon>
+                    { children }
+                </Icon>
             </Style>
         );
     }

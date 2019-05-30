@@ -30,7 +30,7 @@ class Icon extends React.Component<IconProps> {
 
     static defaultProps = {
         size: 'default',
-        color: '#3e4246'
+        color: null
     };
 
     getClassName() {

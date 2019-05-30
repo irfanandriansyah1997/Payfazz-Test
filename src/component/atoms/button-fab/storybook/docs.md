@@ -1,21 +1,19 @@
-# Button Component
-
-Dalam button component terdapat 2 type yaitu button outline dan default.
+# Button FAB Component
 
 ## Cara Penggunaan
-berikut adalah cara penggunaan buttin component
+berikut adalah cara penggunaan button component
 
 ```jsx
 // Import Component
-import Button from 'button.component.js'
+import ButtonFab from 'button-fab.component.js'
 
 // Implementasi di method render
 return (
-    <Button
+    <ButtonFAB
       buttonType="primary"
   >
-      ini text button
-  </Button>
+      edit
+  </ButtonFAB>
 )
 ```
 
