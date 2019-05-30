@@ -6,6 +6,7 @@
 
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 import { ThemeProvider } from 'styled-components';
 import Button from './button-fab.component';
 import Theme from '@/component/themes/default';
@@ -57,4 +58,18 @@ it('Test render button fab large', (): void => {
      */
     expect(component).toHaveStyleRule('height', '72px');
     expect(component).toHaveStyleRule('width', '72px');
+});
+
+it('Test button on click', () => {
+    const mockFn = jest.fn();
+    const button = shallow(
+        <Button
+            buttonType="primary"
+            onClick={mockFn}
+        >
+            edit
+        </Button>
+    );
+    button.simulate('click');
+    expect(mockFn).toHaveBeenCalled();
 });

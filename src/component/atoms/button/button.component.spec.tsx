@@ -6,10 +6,13 @@
 
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 import { ThemeProvider } from 'styled-components';
 import Button from './button.component';
 import Theme from '@/component/themes/default';
 import 'jest-styled-components';
+
+require('config/enzyme.config');
 
 it('Test render button primary', (): void => {
     const component = renderer
@@ -197,4 +200,18 @@ it('Test render button disabled', (): void => {
      */
     expect(component).toHaveStyleRule('color', 'rgba(255,255,255,0.75)', { modifier: ':hover' });
     expect(component2).toHaveStyleRule('color', 'rgba(62,66,70,0.5)', { modifier: ':hover' });
+});
+
+it('Test button on click', () => {
+    const mockFn = jest.fn();
+    const button = shallow(
+        <Button
+            buttonType="primary"
+            onClick={mockFn}
+        >
+            edit
+        </Button>
+    );
+    button.simulate('click');
+    expect(mockFn).toHaveBeenCalled();
 });

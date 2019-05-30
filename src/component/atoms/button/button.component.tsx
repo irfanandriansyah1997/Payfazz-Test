@@ -16,6 +16,7 @@ export interface ButtonProps extends DefaultPropsInterface {
     position?: string;
     shadow?: boolean;
     size?: 'default' | 'small' | string;
+    onClick?: () => void;
     buttonType: 'primary' | 'secondary' | 'tertiary';
 }
 
@@ -32,7 +33,8 @@ class Button extends React.Component<ButtonProps> {
             PropTypes.arrayOf(PropTypes.node),
             PropTypes.node,
             PropTypes.string
-        ]).isRequired
+        ]).isRequired,
+        onClick: PropTypes.func
     };
 
     static defaultProps = {
@@ -41,14 +43,19 @@ class Button extends React.Component<ButtonProps> {
         outline: false,
         position: 'relative',
         shadow: false,
-        size: 'default'
+        size: 'default',
+        onClick: (): void => {}
     };
 
     render(): React.ReactNode {
-        const { children } = this.props;
+        const { children, onClick } = this.props;
 
         return (
-            <Style as="button" {...this.props}>
+            <Style
+                as="button"
+                onClick={onClick}
+                {...this.props}
+            >
                 { children }
             </Style>
         );
