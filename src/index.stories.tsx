@@ -16,12 +16,14 @@ const themes = [defaultTheme];
  * Component
  */
 import ButtonStorybook from '@/component/atoms/button/storybook/button.component.stories';
+import IconStorybook from '@/component/atoms/icon/storybook/icon.component.stories';
 import TextStorybook from '@/component/atoms/text/storybook/text.component.stories';
 
 /**
  * Markdown
  */
 import ButtonMD from '@/component/atoms/button/storybook/docs.md';
+import IconMD from '@/component/atoms/icon/storybook/docs.md';
 import TextMD from '@/component/atoms/text/storybook/docs.md';
 
 storiesOf('Atomic Component', module)
@@ -29,6 +31,11 @@ storiesOf('Atomic Component', module)
     .add('Button', () => <ButtonStorybook />, {
         notes: {
             markdown: ButtonMD
+        }
+    })
+    .add('Icon', () => <IconStorybook />, {
+        notes: {
+            markdown: IconMD
         }
     })
     .add('Text', () => <TextStorybook />, {
