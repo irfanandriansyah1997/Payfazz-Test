@@ -15,7 +15,7 @@ export interface ButtonProps extends DefaultPropsInterface {
     outline?: boolean;
     position?: string;
     shadow?: boolean;
-    size?: 'default' | 'small' | undefined;
+    size?: 'default' | 'small' | string;
     buttonType: 'primary' | 'secondary' | 'tertiary';
 }
 

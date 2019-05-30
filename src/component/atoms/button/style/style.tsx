@@ -143,7 +143,7 @@ const ButtonComponent = styled.button<ButtonProps>`
 
 
     ${(props) => css`
-        ${rounded(3)}
+        ${rounded('3px')}
         ${getBackgroundStyle(props.theme.palette, props.buttonType, props.disable, props.outline)}
         ${getBorderStyle(props.theme.palette, props.buttonType, props.disable)}
         ${getBoxShadowStyle(props.shadow)}
