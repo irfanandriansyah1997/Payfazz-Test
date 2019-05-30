@@ -1,0 +1,22 @@
+@import '@/styles/scss/import.scss';
+
+.ui-atomic-icon {
+    @include font-size(2xl);
+    @include margin(all, 5px);
+
+    &--small {
+        @include font-size(base);
+
+        &.material-icons {
+            @include font-size(base);
+        }
+    }
+
+    &--big {
+        @include font-size(3xl);
+
+        &.material-icons {
+            @include font-size(3xl);
+        }
+    }
+}
