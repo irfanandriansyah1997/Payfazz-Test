@@ -3,21 +3,23 @@ import * as ReactDOM from 'react-dom';
 
 import { ThemeProvider } from 'styled-components';
 import theme from '@/component/themes/default';
-import Button from '@/component/atoms/button/button.component';
+import TextView from '@/component/atoms/textview/textview.component';
+
+import '@/styles/scss/app.scss';
 
 ReactDOM.render(
     <ThemeProvider theme={theme}>
-        <div>
+        <div style={{ padding: '20px' }}>
             <h1>Hai</h1>
-            <Button shadow buttonType="primary">
-                asas
-            </Button>
-            <Button shadow buttonType="secondary">
-                asas
-            </Button>
-            <Button shadow buttonType="tertiary">
-                asas
-            </Button>
+            <TextView
+                name="username"
+                placeholder="Masukan Username"
+            />
+            <TextView
+                name="password"
+                type="password"
+                placeholder="Masukan Password"
+            />
         </div>
     </ThemeProvider>,
     document.getElementById('app')
