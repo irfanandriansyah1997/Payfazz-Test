@@ -6,11 +6,11 @@
 
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import { DefaultPropsInterface, DefaultDynamicObject } from '@/interfaces/object.interface';
+import { DefaultPropsLinkInterface, DefaultDynamicObject } from '@/interfaces/object.interface';
 
 import './style/style.scss';
 
-export interface IconProps extends DefaultPropsInterface {
+export interface IconProps extends DefaultPropsLinkInterface {
     color?: string;
     size?: string | number;
 }
@@ -25,15 +25,30 @@ class Icon extends React.Component<IconProps> {
         size: PropTypes.oneOfType([
             PropTypes.number,
             PropTypes.oneOf(['default', 'small', 'big'])
-        ])
+        ]),
+        onClick: PropTypes.func
     };
 
     static defaultProps = {
+        color: null,
         size: 'default',
-        color: null
+        onClick: (): void => {}
     };
 
-    getClassName() {
+    get style() {
+        const { color, size } = this.props;
+        const response: DefaultDynamicObject = {
+            color
+        };
+
+        if (typeof size === 'number') {
+            response.fontSize = `${size}px`;
+        }
+
+        return response;
+    }
+
+    get className() {
         const { size } = this.props;
         const response: DefaultDynamicObject = {
             'ui-atomic-icon': true,
@@ -50,26 +65,17 @@ class Icon extends React.Component<IconProps> {
             .join(' ');
     }
 
-    getStyle = () => {
-        const { color, size } = this.props;
-        const response: DefaultDynamicObject = {
-            color
-        };
-
-        if (typeof size === 'number') {
-            response.fontSize = `${size}px`;
-        }
-
-        return response;
-    }
-
     render(): React.ReactNode {
-        const { children } = this.props;
+        const { children, onClick } = this.props;
 
         return (
             <i
-                className={this.getClassName()}
-                style={this.getStyle()}
+                className={this.className}
+                style={this.style}
+                onClick={onClick}
+                onKeyDown={onClick}
+                role="button"
+                tabIndex={0}
             >
                 { children }
             </i>

@@ -7,16 +7,15 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import Style from './style/style';
-import { DefaultPropsInterface } from '@/interfaces/object.interface';
+import { DefaultPropsLinkInterface } from '@/interfaces/object.interface';
 
-export interface ButtonProps extends DefaultPropsInterface {
+export interface ButtonProps extends DefaultPropsLinkInterface {
     disable?: boolean;
     display?: string;
     outline?: boolean;
     position?: string;
     shadow?: boolean;
     size?: 'default' | 'small' | string;
-    onClick?: () => void;
     buttonType: 'primary' | 'secondary' | 'tertiary';
 }
 
