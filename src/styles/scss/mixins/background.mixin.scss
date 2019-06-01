@@ -11,7 +11,7 @@
 }
 
 @mixin background-color($hex) {
-    background-color: $hex;
+    background-color: get-color($hex);
 }
 
 @mixin no-background() {
@@ -32,7 +32,10 @@
     }
 
     background: nth(nth($color-stops, 1), 1);
-    background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
+    background: -webkit-linear-gradient(
+        legacy-direction($direction),
+        $color-stops
+    );
     background: linear-gradient($direction, $color-stops);
 }
 
@@ -44,6 +47,7 @@
     $IEValue: $value * 100;
 
     opacity: $value;
-    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=' + $IEValue + ')';
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=' + $IEValue +
+        ')';
     filter: alpha(opacity=$IEValue);
 }

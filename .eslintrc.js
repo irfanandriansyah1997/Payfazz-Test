@@ -39,6 +39,16 @@ module.exports = {
                 extensions: ['.js', '.jsx', '.ts', '.tsx', '.es6']
             }
         },
+        "jsx-a11y/label-has-for": [
+            2,
+            {
+                "components": ["Label"],
+                "required": {
+                    "every": ["nesting", "id"]
+                },
+                "allowChildren": true
+            }
+        ],
         'linebreak-style': [2, 'unix'],
         'max-len': [
             2,

@@ -22,6 +22,7 @@ import ButtonFABStorybook from '@/component/atoms/button-fab/storybook/button-fa
 import IconStorybook from '@/component/atoms/icon/storybook/icon.component.stories';
 import LoadingStorybook from '@/component/atoms/loading/storybook/loading.component.stories';
 import TextStorybook from '@/component/atoms/text/storybook/text.component.stories';
+import TextviewStorybook from '@/component/atoms/textview/storybook/textview.component.stories';
 
 /**
  * Markdown
@@ -51,9 +52,11 @@ storiesOf('Atomic Component', module)
     .add('Loading', () => <LoadingStorybook />, {
         notes: '# Coming Soon'
     })
-
     .add('Text', () => <TextStorybook />, {
         notes: {
             markdown: TextMD
         }
+    })
+    .add('Textview', () => <TextviewStorybook />, {
+        notes: '# Coming Soon'
     });
