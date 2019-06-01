@@ -38,9 +38,9 @@ class Textview extends React.PureComponent<TextviewProps, StateTypes> {
         type: 'text',
         value: '',
         placeholder: '',
-        onChange: () => {},
-        onBlur: () => {},
-        onFocus: () => {}
+        onChange: null,
+        onBlur: null,
+        onFocus: null
     }
 
     constructor(props: TextviewProps) {
@@ -88,10 +88,11 @@ class Textview extends React.PureComponent<TextviewProps, StateTypes> {
     }
 
     onChangeType() {
-        let { stateType } = this.state;
-        stateType = stateType === 'password' ? 'text' : 'password';
+        const { stateType } = this.state;
 
-        this.setState({ stateType });
+        this.setState({
+            stateType: stateType === 'password' ? 'text' : 'password'
+        });
     }
 
     get className() {
