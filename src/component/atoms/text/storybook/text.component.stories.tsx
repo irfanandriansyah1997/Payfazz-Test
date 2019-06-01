@@ -22,7 +22,7 @@ export interface TextStates extends DefaultDynamicObject {
     ): any;
 }
 
-class ButtonStorybook extends React.Component<DefaultPropsInterface, TextStates> {
+class TextStorybook extends React.Component<DefaultPropsInterface, TextStates> {
     constructor(props: TextProps) {
         super(props);
 
@@ -120,4 +120,4 @@ class ButtonStorybook extends React.Component<DefaultPropsInterface, TextStates>
     }
 }
 
-export default ButtonStorybook;
+export default TextStorybook;

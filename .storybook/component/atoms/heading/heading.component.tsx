@@ -23,7 +23,7 @@ class HeadingComponent extends Component<props> {
         parent: false
     };
 
-    getClassName() {
+    get className() {
         const { parent } = this.props;
 
         const className: DefaultDynamicObject = {
@@ -38,7 +38,7 @@ class HeadingComponent extends Component<props> {
 
     render() {
         const { children } = this.props;
-        return <h1 className={this.getClassName()}>{children}</h1>;
+        return <h1 className={this.className}>{children}</h1>;
     }
 }
 
