@@ -14,6 +14,12 @@ export interface DefaultPropsLinkInterface extends DefaultPropsInterface {
     onClick?: () => void;
 }
 
+export interface DefaultPropsDialogInterface extends DefaultPropsInterface {
+    show?: boolean;
+    type?: 'popup' | 'snackbar';
+    onCloseDialog: () => void;
+}
+
 export interface DefaultDynamicObject {
     [key: string]: any;
 }

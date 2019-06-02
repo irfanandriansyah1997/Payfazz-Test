@@ -19,6 +19,7 @@ const themes = [defaultTheme];
  */
 import ButtonStorybook from '@/component/atoms/button/storybook/button.component.stories';
 import ButtonFABStorybook from '@/component/atoms/button-fab/storybook/button-fab.component.stories';
+import DialogStorybook from '@/component/atoms/dialog/storybook/dialog.component.stories';
 import IconStorybook from '@/component/atoms/icon/storybook/icon.component.stories';
 import LoadingStorybook from '@/component/atoms/loading/storybook/loading.component.stories';
 import TextStorybook from '@/component/atoms/text/storybook/text.component.stories';
@@ -43,6 +44,9 @@ storiesOf('Atomic Component', module)
         notes: {
             markdown: ButtonFABMD
         }
+    })
+    .add('Dialog', () => <DialogStorybook />, {
+        notes: '# Coming Soon'
     })
     .add('Icon', () => <IconStorybook />, {
         notes: {
