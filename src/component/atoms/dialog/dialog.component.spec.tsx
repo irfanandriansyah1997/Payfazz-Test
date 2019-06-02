@@ -52,7 +52,7 @@ it('Test render dialog snackbar', (): void => {
     expect(component).toHaveStyleRule('width', '100%');
     expect(component).toHaveStyleRule('border-radius', '10px 10px 0 0');
     expect(component).toHaveStyleRule('max-width', '100%');
-    expect(component).toHaveStyleRule('transform', 'translateY(-50%)');
+    expect(component).toHaveStyleRule('transform', 'translateY(50%)');
 });
 
 
