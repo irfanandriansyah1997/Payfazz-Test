@@ -51,3 +51,57 @@
         }
     }
 }
+
+.slide-down {
+    &-apear {
+        opacity: 0;
+        z-index: 1;
+        display: none;
+
+        &.slide-down-appear-active {
+            opacity: 1;
+            display: block;
+
+            @include transform-translateY(0%);
+        }
+    }
+
+    &-enter {
+        opacity: 0;
+        z-index: 1;
+        display: flex;
+
+        &.slide-down-enter-active {
+            opacity: 0;
+            display: flex;
+
+            @include transform-translateY(50%);
+        }
+
+        &-done {
+            opacity: 1;
+            display: flex;
+
+            @include transform-translateY(0%);
+        }
+    }
+
+    &-exit {
+        opacity: 0;
+        display: flex;
+
+        &.slide-down-exit-active {
+            opacity: 0;
+            display: flex;
+
+            @include transform-translateY(50%);
+        }
+
+        &-done {
+            opacity: 0;
+            display: none;
+
+            @include transform-translateY(50%);
+        }
+    }
+}
