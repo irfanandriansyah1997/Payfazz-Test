@@ -33,6 +33,7 @@ export interface stateTypes extends DefaultDynamicObject {
     toggleSnackbarDefault: boolean;
     template(
         show?: boolean,
+        type?: string
     ): any;
 }
 
@@ -49,12 +50,14 @@ class DialogStorybook extends React.Component<DefaultPropsInterface, stateTypes>
             wording: `Dialog komponen digunakan untuk membuat alert maupun form pada halaman edit & tambah`,
             template: (
                 show: boolean,
-            ) => '<Dialog' +
+                type: string,
+            ) => '<Snackbar' +
+            '\n    type="' + type + '"' +
             '\n    show="' + show + '"' +
             '\n    onCloseDialog={() => {}}' +
             '\n>' +
             '\n    Children\n' +
-            '</Dialog> \n',
+            '</Snackbar> \n',
         };
         this.toggleSnackbar = this.toggleSnackbar.bind(this);
     }
@@ -63,10 +66,10 @@ class DialogStorybook extends React.Component<DefaultPropsInterface, stateTypes>
         const { component, template, toggleSnackbarError, toggleSnackbarDefault } = this.state;
         return component[key].map((_: any, index: number) => {
             if (index === 0) {
-                return template(toggleSnackbarError);
+                return template(toggleSnackbarError, 'error');
             }
 
-            return template(toggleSnackbarDefault);
+            return template(toggleSnackbarDefault, 'default');
         }).join('\n');
     }
 
