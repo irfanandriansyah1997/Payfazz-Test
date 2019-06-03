@@ -64,21 +64,21 @@ class DeleteDialog extends React.PureComponent<DeleteDialogProps> {
                     >
                         close
                     </Icon>
-                    <Text>
+                    <Text align="center">
                         Deleting a listing will permanently remove it from your listing.
                     </Text>
                     <div className="ui-molecules-delete-dialog__action">
                         <Button
                             buttonType="primary"
                             shadow
-                            onClick={onCancel}
+                            onClick={onAccept}
                         >
                             Yes, Delete Listing
                         </Button>
                         <Button
                             buttonType="tertiary"
                             noBorder
-                            onClick={onAccept}
+                            onClick={onCancel}
                         >
                             No, Keep Listing
                         </Button>

@@ -140,7 +140,7 @@ const ButtonComponent = styled.button<ButtonProps>`
     position: ${({ position }) => position}
     display: ${({ display }) => display};
     height: ${(props) => (props.size === 'default' ? '41px' : '32px')};
-    padding: ${(props) => (props.size === 'default' ? '0 16px' : '0 8px')};
+    padding: ${(props) => (props.size === 'default' ? '0 15px' : '0 7.5px')};
     cursor: ${(props) => (props.disable ? 'not-allowed' : 'pointer')};
     align-items: center;
     justify-content: center;

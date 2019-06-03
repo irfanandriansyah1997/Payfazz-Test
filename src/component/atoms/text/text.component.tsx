@@ -13,6 +13,7 @@ export interface TextProps extends DefaultPropsInterface {
     TextType: string;
     fontWeight?: string;
     color?: string;
+    align?: 'center' | 'left' | 'right' | 'initial';
 }
 
 class Text extends React.Component<TextProps> {
@@ -35,13 +36,15 @@ class Text extends React.Component<TextProps> {
             PropTypes.arrayOf(PropTypes.node),
             PropTypes.node,
             PropTypes.string
-        ]).isRequired
+        ]).isRequired,
+        align: PropTypes.oneOf(['center', 'left', 'right', 'initial'])
     };
 
     static defaultProps = {
         TextType: 'normal',
         fontWeight: null,
-        color: null
+        color: null,
+        align: 'initial'
     };
 
     render(): React.ReactNode {

@@ -33,7 +33,7 @@ it('Test render button primary', (): void => {
     expect(component).toHaveStyleRule('background-color', '#3893d9');
     expect(component).toHaveStyleRule('border', '1px solid #3893d9');
     expect(component).toHaveStyleRule('font-size', '14px');
-    expect(component).toHaveStyleRule('padding', '0 16px');
+    expect(component).toHaveStyleRule('padding', '0 15px');
     expect(component).toHaveStyleRule('font-family', '\'Avenir Next\',sans-serif');
     expect(component).toHaveStyleRule('color', '#fff');
     expect(component).toHaveStyleRule('transition', '0.15s cubic-bezier(0.7,0.3,0,1)');
@@ -92,6 +92,22 @@ it('Test render button tertiary', (): void => {
      */
     expect(component).toHaveStyleRule('background-color', '#f6f6f6', { modifier: ':hover' });
     expect(component).toHaveStyleRule('color', '#3e4246', { modifier: ':hover' });
+});
+
+it('Test render button tertiary no border', (): void => {
+    const component = renderer
+        .create(
+            <ThemeProvider theme={Theme}>
+                <Button buttonType="tertiary" noBorder>Ini Button</Button>
+            </ThemeProvider>
+        )
+        .toJSON();
+
+    /**
+     * Default Style
+     */
+    expect(component).toHaveStyleRule('border', '1px solid transparent');
+    expect(component).toHaveStyleRule('background', 'transparent');
 });
 
 it('Test render button primary with outline', (): void => {
@@ -192,7 +208,7 @@ it('Test render button disabled', (): void => {
     expect(component2).toHaveStyleRule('color', 'rgba(62,66,70,0.5)');
     expect(component2).toHaveStyleRule('font-size', '12px');
     expect(component2).toHaveStyleRule('height', '32px');
-    expect(component2).toHaveStyleRule('padding', '0 8px');
+    expect(component2).toHaveStyleRule('padding', '0 7.5px');
     expect(component2).toHaveStyleRule('cursor', 'not-allowed');
 
     /**
