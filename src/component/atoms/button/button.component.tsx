@@ -15,6 +15,7 @@ export interface ButtonProps extends DefaultPropsLinkInterface {
     outline?: boolean;
     position?: string;
     shadow?: boolean;
+    noBorder?: boolean;
     size?: 'default' | 'small' | string;
     buttonType: 'primary' | 'secondary' | 'tertiary';
 }
@@ -33,6 +34,7 @@ class Button extends React.Component<ButtonProps> {
             PropTypes.node,
             PropTypes.string
         ]).isRequired,
+        noBorder: PropTypes.bool,
         onClick: PropTypes.func
     };
 
@@ -43,6 +45,7 @@ class Button extends React.Component<ButtonProps> {
         position: 'relative',
         shadow: false,
         size: 'default',
+        noBorder: false,
         onClick: (): void => {}
     };
 
