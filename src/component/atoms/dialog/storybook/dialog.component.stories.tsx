@@ -56,7 +56,7 @@ class DialogStorybook extends React.Component<DefaultPropsInterface, stateTypes>
             '\n    onCloseDialog={() => {}}' +
             '\n>' +
             '\n    Children\n' +
-            '</Button> \n',
+            '</Dialog> \n',
         };
         this.toggleDialog = this.toggleDialog.bind(this);
     }

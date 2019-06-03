@@ -3,14 +3,13 @@ import * as ReactDOM from 'react-dom';
 
 import { ThemeProvider } from 'styled-components';
 import theme from '@/component/themes/default';
-import Dialog from '@/component/atoms/dialog/dialog.component';
+import DeleteDialog from '@/component/molecules/delete-dialog/delete-dialog.component';
 
 import '@/styles/scss/app.scss';
 import { DefaultPropsInterface } from '@/interfaces/object.interface';
 
 interface StateTypes {
     show?: boolean;
-    show2?: boolean;
 }
 
 class Sample extends React.Component<DefaultPropsInterface, StateTypes> {
@@ -18,13 +17,12 @@ class Sample extends React.Component<DefaultPropsInterface, StateTypes> {
         super(props);
 
         this.state = {
-            show: false,
-            show2: false
+            show: false
         };
     }
 
     render() {
-        const { show, show2 } = this.state;
+        const { show } = this.state;
 
         return (
             <ThemeProvider theme={theme}>
@@ -36,25 +34,11 @@ class Sample extends React.Component<DefaultPropsInterface, StateTypes> {
                     >
                         Toggle 1
                     </button>
-                    <button
-                        onClick={() => this.setState({ show2: !show2 })}
-                        type="submit"
-                    >
-                        Toggle 2
-                    </button>
-                    <Dialog
+                    <DeleteDialog
                         show={show}
-                        onCloseDialog={() => this.setState({ show: false })}
-                    >
-                        <img src="https://i.ibb.co/pbThLXd/delete.png" alt="" />
-                    </Dialog>
-                    <Dialog
-                        show={show2}
-                        type="snackbar"
-                        onCloseDialog={() => this.setState({ show2: false })}
-                    >
-                        Hai
-                    </Dialog>
+                        onAccept={() => this.setState({ show: false })}
+                        onCancel={() => this.setState({ show: false })}
+                    />
                 </div>
             </ThemeProvider>
         );

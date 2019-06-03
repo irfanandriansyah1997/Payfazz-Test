@@ -121,7 +121,8 @@ export const fontFace = (
  */
 export const generateHeadingStyle = (
     selector: string,
-    theme: ThemeInterface
+    theme: ThemeInterface,
+    align: string = 'initial'
 ) => {
     const fontsize = theme.size.fontSizeHeading[
         `heading${selector.charAt(0).toUpperCase()}${selector.slice(1)}`
@@ -171,7 +172,7 @@ export const generateHeadingStyle = (
         'normal',
         lineheight,
         'normal',
-        'initial',
+        align,
         theme.palette.grayscale[0]
     )}
     `;

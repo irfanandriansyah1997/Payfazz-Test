@@ -1,0 +1,25 @@
+@import '@/styles/scss/import.scss';
+
+.ui-molecules-delete-dialog {
+    $c: &;
+
+    text-align: center;
+
+    @include padding(all, 15px 10px);
+    @include background-color(rgba(get-color(grey-lighter), 0.5));
+    @include border-top(1px, solid, grey-light);
+
+    .ui-atomic-icon {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+    }
+
+    &__action {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include margin-top(15px);
+    }
+}

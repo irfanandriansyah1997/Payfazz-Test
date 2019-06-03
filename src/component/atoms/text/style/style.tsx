@@ -17,7 +17,7 @@ const TextComponent = styled.p<TextProps>`
     margin: 10px 0;
 
     ${(props) => css`
-        ${generateHeadingStyle(props.TextType, props.theme)}
+        ${generateHeadingStyle(props.TextType, props.theme, 'center')}
         ${fontWeight(props.fontWeight)}
         ${fontColor(props.color ? props.color : props.theme.palette.grayscale[0])}
     `}
