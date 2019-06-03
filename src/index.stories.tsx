@@ -22,6 +22,7 @@ import ButtonFABStorybook from '@/component/atoms/button-fab/storybook/button-fa
 import DialogStorybook from '@/component/atoms/dialog/storybook/dialog.component.stories';
 import IconStorybook from '@/component/atoms/icon/storybook/icon.component.stories';
 import LoadingStorybook from '@/component/atoms/loading/storybook/loading.component.stories';
+import SnackbarStorybook from '@/component/atoms/snackbars/storybook/snackbars.component.stories';
 import TextStorybook from '@/component/atoms/text/storybook/text.component.stories';
 import TextviewStorybook from '@/component/atoms/textview/storybook/textview.component.stories';
 
@@ -56,6 +57,9 @@ storiesOf('Atomic Component', module)
         }
     })
     .add('Loading', () => <LoadingStorybook />, {
+        notes: '# Coming Soon'
+    })
+    .add('Snackbar', () => <SnackbarStorybook />, {
         notes: '# Coming Soon'
     })
     .add('Text', () => <TextStorybook />, {

@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom';
 
 import { ThemeProvider } from 'styled-components';
 import theme from '@/component/themes/default';
-import DeleteDialog from '@/component/molecules/delete-dialog/delete-dialog.component';
+import Snackbars from '@/component/atoms/snackbars/snackbars.component';
 
 import '@/styles/scss/app.scss';
 import { DefaultPropsInterface } from '@/interfaces/object.interface';
@@ -34,11 +34,13 @@ class Sample extends React.Component<DefaultPropsInterface, StateTypes> {
                     >
                         Toggle 1
                     </button>
-                    <DeleteDialog
+                    <Snackbars
                         show={show}
-                        onAccept={() => this.setState({ show: false })}
-                        onCancel={() => this.setState({ show: false })}
-                    />
+                        type="error"
+                        onCloseDialog={() => this.setState({ show: false })}
+                    >
+                        Snackbars Example
+                    </Snackbars>
                 </div>
             </ThemeProvider>
         );
