@@ -14,10 +14,13 @@ export interface DefaultPropsLinkInterface extends DefaultPropsInterface {
     onClick?: () => void;
 }
 
-export interface DefaultPropsDialogInterface extends DefaultPropsInterface {
+export interface DefaultPropsAlertInterface extends DefaultPropsInterface {
     show?: boolean;
-    type?: 'popup' | 'snackbar';
     onCloseDialog: () => void;
+}
+
+export interface DefaultPropsDialogInterface extends DefaultPropsAlertInterface {
+    type?: 'popup' | 'snackbar';
 }
 
 export interface DefaultDynamicObject {
