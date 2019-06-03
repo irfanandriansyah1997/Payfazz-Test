@@ -28,7 +28,6 @@ const DialogComponent = styled.div<DialogStylePropTypes>`
     flex-direction: column;
     align-items: center;
     margin: 0;
-    padding: 15px;
     z-index: 100;
     min-height: 200px;
     overflow: hidden;
@@ -37,6 +36,7 @@ const DialogComponent = styled.div<DialogStylePropTypes>`
         top: ${type === 'popup' ? '50%' : 'initial'};
         bottom: ${type === 'popup' ? 'initial' : '0'};
         left: ${type === 'popup' ? '50%' : '0'};
+        padding: ${type === 'popup' ? '0' : '15px'};
         width: ${type === 'popup' ? 'calc(100% - 30px)' : '100%'};
         max-width: ${type === 'popup' ? '400px' : '100%'};
         height: initial;
@@ -48,7 +48,7 @@ const DialogComponent = styled.div<DialogStylePropTypes>`
 
         img {
             width: ${type === 'popup' ? '100%' : '75%'};
-            margin: ${type === 'popup' ? '-40px 0 0' : 'initial'};
+            margin: ${type === 'popup' ? '-40px 0 -20px' : 'initial'};
         }
     `}
 `;

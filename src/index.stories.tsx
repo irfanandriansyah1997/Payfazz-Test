@@ -25,6 +25,8 @@ import LoadingStorybook from '@/component/atoms/loading/storybook/loading.compon
 import TextStorybook from '@/component/atoms/text/storybook/text.component.stories';
 import TextviewStorybook from '@/component/atoms/textview/storybook/textview.component.stories';
 
+import DeleteDialogStorybook from '@/component/molecules/delete-dialog/storybook/delete-dialog.component.stories';
+
 /**
  * Markdown
  */
@@ -62,5 +64,11 @@ storiesOf('Atomic Component', module)
         }
     })
     .add('Textview', () => <TextviewStorybook />, {
+        notes: '# Coming Soon'
+    });
+
+storiesOf('Molecules Component', module)
+    .addDecorator(withThemesProvider(themes))
+    .add('Delete Dialog', () => <DeleteDialogStorybook />, {
         notes: '# Coming Soon'
     });

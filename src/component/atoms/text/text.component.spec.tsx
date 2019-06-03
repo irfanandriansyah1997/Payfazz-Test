@@ -39,6 +39,29 @@ it('Test render text', () => {
     expect(component).toHaveStyleRule('font-weight', 'light');
     expect(component).toHaveStyleRule('font-size', fontsize);
     expect(component).toHaveStyleRule('line-height', lineheight);
+    expect(component).toHaveStyleRule('text-align', 'initial');
+});
+
+it('Test render text align center', () => {
+    const component = renderer
+        .create(
+            <ThemeProvider theme={Theme}>
+                <Text
+                    TextType="h1"
+                    fontWeight="light"
+                    color="#000"
+                    align="center"
+                >
+                    Ini Text
+                </Text>
+            </ThemeProvider>
+        )
+        .toJSON();
+
+    /**
+     * Default Style
+     */
+    expect(component).toHaveStyleRule('text-align', 'center');
 });
 
 it('Test render text without fill fontWeight props', () => {

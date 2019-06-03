@@ -43,9 +43,17 @@ const getBackgroundStyle = (
 const getBorderStyle = (
     palette: PaletteThemeInterface,
     type: string,
-    disable?: boolean
+    disable?: boolean,
+    noBorder?: boolean
 ): any => {
-    if (type !== 'tertiary') {
+    if (type === 'tertiary' && noBorder) {
+        return css`
+            border: 1px solid transparent;
+            background: transparent;
+        `;
+    }
+
+    if (type !== 'tertiary' && !noBorder) {
         return css`
             border: 1px solid ${palette[type][disable ? 2 : 0]};
 
@@ -132,7 +140,7 @@ const ButtonComponent = styled.button<ButtonProps>`
     position: ${({ position }) => position}
     display: ${({ display }) => display};
     height: ${(props) => (props.size === 'default' ? '41px' : '32px')};
-    padding: ${(props) => (props.size === 'default' ? '0 16px' : '0 8px')};
+    padding: ${(props) => (props.size === 'default' ? '0 15px' : '0 7.5px')};
     cursor: ${(props) => (props.disable ? 'not-allowed' : 'pointer')};
     align-items: center;
     justify-content: center;
@@ -145,7 +153,7 @@ const ButtonComponent = styled.button<ButtonProps>`
     ${(props) => css`
         ${rounded('3px')}
         ${getBackgroundStyle(props.theme.palette, props.buttonType, props.disable, props.outline)}
-        ${getBorderStyle(props.theme.palette, props.buttonType, props.disable)}
+        ${getBorderStyle(props.theme.palette, props.buttonType, props.disable, props.noBorder)}
         ${getBoxShadowStyle(props.shadow)}
         ${getFontStyle(props.theme, props.size)}
         ${getFontColor(props.theme.palette, props.buttonType, props.disable, props.outline)}
