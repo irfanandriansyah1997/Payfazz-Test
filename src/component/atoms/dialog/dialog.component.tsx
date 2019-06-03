@@ -59,7 +59,7 @@ class Dialog extends React.PureComponent<DefaultPropsDialogInterface, StateTypes
         this.setCloseDialog = this.setCloseDialog.bind(this);
     }
 
-    get PropsDialog() {
+    get PropsDialog(): DialogStylePropTypes {
         const { type } = this.props;
         const response: DialogStylePropTypes = {
             type
