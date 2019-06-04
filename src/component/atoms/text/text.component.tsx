@@ -10,6 +10,7 @@ import Style from './style/style';
 import { DefaultPropsInterface } from '@/interfaces/object.interface';
 
 export interface TextProps extends DefaultPropsInterface {
+    as?: any;
     TextType: string;
     fontWeight?: string;
     color?: string;
@@ -30,6 +31,7 @@ class Text extends React.Component<TextProps> {
             'meta',
             'caption'
         ]),
+        as: PropTypes.string,
         fontWeight: PropTypes.oneOf(['light', 'normal', 'medium', 'semibold', 'bold']),
         color: PropTypes.string,
         children: PropTypes.oneOfType([
@@ -42,6 +44,7 @@ class Text extends React.Component<TextProps> {
 
     static defaultProps = {
         TextType: 'normal',
+        as: 'p',
         fontWeight: null,
         color: null,
         align: 'initial'
