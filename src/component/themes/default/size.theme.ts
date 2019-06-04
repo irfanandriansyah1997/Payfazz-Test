@@ -50,8 +50,8 @@ export const lineHeightHeading: DefaultDynamicObject = {
  * button font size
  */
 export const buttonFontSize: DefaultDynamicObject = {
-    buttonFontDefault: fontSize.textSizeSm,
-    buttonFontSmall: fontSize.textSizeXs
+    buttonFontDefault: fontSize.textSizeBase,
+    buttonFontSmall: fontSize.textSizeSm
 };
 
 /*

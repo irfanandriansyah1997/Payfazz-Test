@@ -18,6 +18,7 @@ export interface ButtonProps extends DefaultPropsLinkInterface {
     noBorder?: boolean;
     size?: 'default' | 'small' | string;
     buttonType: 'primary' | 'secondary' | 'tertiary';
+    [key: string]: any;
 }
 
 class Button extends React.Component<ButtonProps> {
