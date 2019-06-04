@@ -83,13 +83,16 @@ export default function formValidation(
             };
         }
 
-        validateRequired(key: string, val: string, specification: any): ValidationRulesResult {
-            if (!specification) {
-                return {
-                    code: 200,
-                    message: ''
-                };
-            }
+        validateRequired(key: string, val: string, _: any): ValidationRulesResult {
+            /**
+             * Comment cause i think all field is required
+             */
+            // if (!_) {
+            //     return {
+            //         code: 200,
+            //         message: ''
+            //     };
+            // }
 
             const valid = val !== '';
             return {

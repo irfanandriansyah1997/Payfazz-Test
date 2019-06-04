@@ -45,7 +45,7 @@ export interface StateTypes {
     showedError: boolean;
 }
 
-class SignupPage extends React.PureComponent<LoginPageProps, StateTypes> {
+export class SignupPage extends React.PureComponent<LoginPageProps, StateTypes> {
     static propTypes = {
         validate: PropTypes.func.isRequired,
         error: PropTypes.string.isRequired,

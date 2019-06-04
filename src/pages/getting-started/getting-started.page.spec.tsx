@@ -17,7 +17,7 @@ import 'jest-styled-components';
 
 require('config/enzyme.config');
 
-describe('Testing page', () => {
+describe('Testing page getting started', () => {
     it('Test page render properly', () => {
         mount(
             <ThemeProvider theme={Theme}>
