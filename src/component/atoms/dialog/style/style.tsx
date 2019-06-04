@@ -9,6 +9,7 @@ import { DialogStylePropTypes } from '@/component/atoms/dialog/dialog.component'
 import { rounded } from '@/styles/styled-component/mixins/border-radius.mixin';
 import { backgroundColor } from '@/styles/styled-component/mixins/background.mixin';
 import { transition } from '@/styles/styled-component/mixins/transition.mixin';
+import { boxShadow } from '@/styles/styled-component/mixins/box-shadow.mixin';
 
 const getTransform = (type?: string): any => {
     if (type === 'popup') {
@@ -45,6 +46,7 @@ const DialogComponent = styled.div<DialogStylePropTypes>`
         ${backgroundColor(theme.palette.white[0])}
         ${rounded(type === 'popup' ? '5px' : '10px 10px 0 0')}
         ${transition(css`0.3s cubic-bezier(0.7, 0.3, 0, 1)`)}
+        ${boxShadow(css`0 20px 100px rgba(0,0,0,0.25)`)}
 
         img {
             width: ${type === 'popup' ? '100%' : '75%'};

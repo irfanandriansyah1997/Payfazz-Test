@@ -15,7 +15,7 @@ import '@/styles/scss/app.scss';
 const themes = [defaultTheme];
 
 /**
- * Component
+ * Atomic Component
  */
 import ButtonStorybook from '@/component/atoms/button/storybook/button.component.stories';
 import ButtonFABStorybook from '@/component/atoms/button-fab/storybook/button-fab.component.stories';
@@ -26,10 +26,14 @@ import SnackbarStorybook from '@/component/atoms/snackbars/storybook/snackbars.c
 import TextStorybook from '@/component/atoms/text/storybook/text.component.stories';
 import TextviewStorybook from '@/component/atoms/textview/storybook/textview.component.stories';
 
+/**
+ * Molecules Component
+ */
 import DeleteDialogStorybook from '@/component/molecules/delete-dialog/storybook/delete-dialog.component.stories';
+import CardListingStorybook from '@/component/molecules/card-listing/storybook/card-listing.component.stories';
 
 /**
- * Markdown
+ * Atomic Markdown
  */
 import ButtonMD from '@/component/atoms/button/storybook/docs.md';
 import ButtonFABMD from '@/component/atoms/button-fab/storybook/docs.md';
@@ -74,5 +78,8 @@ storiesOf('Atomic Component', module)
 storiesOf('Molecules Component', module)
     .addDecorator(withThemesProvider(themes))
     .add('Delete Dialog', () => <DeleteDialogStorybook />, {
+        notes: '# Coming Soon'
+    })
+    .add('Card Listing', () => <CardListingStorybook />, {
         notes: '# Coming Soon'
     });
