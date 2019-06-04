@@ -82,7 +82,7 @@ class DialogStorybook extends React.Component<DefaultPropsInterface, stateTypes>
 
         return (
             <Template
-                componentName="Loading"
+                componentName="Dialog"
                 description={wording}
             >
                 <Heading>Penggunaan Komponen</Heading>

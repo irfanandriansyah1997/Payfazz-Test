@@ -88,7 +88,7 @@ class DialogStorybook extends React.Component<DefaultPropsInterface, stateTypes>
 
         return (
             <Template
-                componentName="Loading"
+                componentName="Snackbars"
                 description={wording}
             >
                 <Heading>Penggunaan Komponen</Heading>
