@@ -77,6 +77,7 @@ module.exports = {
                 "allowSamePrecedence": true
             }
         ],
+        'no-restricted-properties': [0],
         'no-underscore-dangle': [0],
         'no-unused-vars': [
             0,
