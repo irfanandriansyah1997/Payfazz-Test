@@ -174,7 +174,7 @@ class LoginPage extends React.PureComponent<LoginPageProps, StateTypes> {
                         buttonType="primary"
                         onClick={this.validate}
                     >
-                        Signup
+                        Login
                     </Button>
                     <Link
                         className="ui-pages-login__options-link"
