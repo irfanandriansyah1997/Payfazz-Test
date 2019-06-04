@@ -44,7 +44,6 @@ class CardListingStorybook extends React.Component<DefaultPropsInterface, stateT
             '\n    onClick={() => {}}' +
             '\n/>',
         };
-        this.toggleDialog = this.toggleDialog.bind(this);
     }
 
     getCode(): string {
@@ -55,11 +54,6 @@ class CardListingStorybook extends React.Component<DefaultPropsInterface, stateT
             32500000,
             'Nissan GTR'
         );;
-    }
-
-    toggleDialog(type: string): void {
-        console.log(type);
-        this.setState({ [type]: !this.state[type] });
     }
 
     render() {
