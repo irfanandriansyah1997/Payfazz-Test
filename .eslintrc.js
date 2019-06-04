@@ -31,6 +31,7 @@ module.exports = {
         'comma-dangle': [2, 'never'],
         'generator-star-spacing': 'off',
         indent: [2, 4],
+        'import/no-duplicates': [0],
         'import/no-extraneous-dependencies': [0],
         'import/no-unresolved': [0],
         'import/prefer-default-export': [0],
