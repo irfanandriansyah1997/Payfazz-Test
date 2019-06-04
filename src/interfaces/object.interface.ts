@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 
 export interface DefaultPropsInterface {
     children?: ReactNode;
+    as?: any;
 }
 
 export interface DefaultPropsTextviewInterface extends DefaultPropsInterface {

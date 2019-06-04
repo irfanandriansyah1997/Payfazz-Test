@@ -1,0 +1,72 @@
+@import '@/styles/scss/import.scss';
+
+.ui-pages-getting-started {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+
+    @include padding(all, 60px 20px 0);
+    @include background-color(body);
+
+    > img {
+        width: 100%;
+        max-width: 300px;
+
+        @include margin-top(30px);
+    }
+
+    > h1 {
+        @include no-margin();
+        @include font-color(primary);
+
+        span {
+            @include margin-left(10px);
+            @include font-family('Avenir Next Ultra');
+            @include font-weight(200);
+        }
+    }
+
+    > p {
+        @include margin-top(5px);
+        @include font-style(italic);
+    }
+
+    &__action {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        width: 100%;
+
+        @include padding(all, 0 20px);
+
+        a {
+            width: 100%;
+
+            @include margin(all, 15px 0);
+
+            &:last-child {
+                @include no-margin-bottom();
+            }
+
+            &:first-child {
+                background-image: -webkit-linear-gradient(
+                    39deg,
+                    rgba(62, 145, 214, 0.97),
+                    #5e4fe2
+                );
+                background-image: -o-linear-gradient(
+                    39deg,
+                    rgba(62, 145, 214, 0.97),
+                    #5e4fe2
+                );
+                background-image: linear-gradient(
+                    39deg,
+                    rgba(62, 145, 214, 0.97),
+                    #5e4fe2
+                );
+            }
+        }
+    }
+}

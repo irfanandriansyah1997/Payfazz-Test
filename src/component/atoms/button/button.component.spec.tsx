@@ -28,11 +28,11 @@ it('Test render button primary', (): void => {
      */
     expect(component).toHaveStyleRule('position', 'relative');
     expect(component).toHaveStyleRule('display', 'flex');
-    expect(component).toHaveStyleRule('height', '41px');
+    expect(component).toHaveStyleRule('height', '50px');
     expect(component).toHaveStyleRule('cursor', 'pointer');
     expect(component).toHaveStyleRule('background-color', '#3893d9');
     expect(component).toHaveStyleRule('border', '1px solid #3893d9');
-    expect(component).toHaveStyleRule('font-size', '14px');
+    expect(component).toHaveStyleRule('font-size', '16px');
     expect(component).toHaveStyleRule('padding', '0 15px');
     expect(component).toHaveStyleRule('font-family', '\'Avenir Next\',sans-serif');
     expect(component).toHaveStyleRule('color', '#fff');
@@ -206,8 +206,8 @@ it('Test render button disabled', (): void => {
      */
     expect(component).toHaveStyleRule('color', 'rgba(255,255,255,0.75)');
     expect(component2).toHaveStyleRule('color', 'rgba(62,66,70,0.5)');
-    expect(component2).toHaveStyleRule('font-size', '12px');
-    expect(component2).toHaveStyleRule('height', '32px');
+    expect(component2).toHaveStyleRule('font-size', '14px');
+    expect(component2).toHaveStyleRule('height', '40px');
     expect(component2).toHaveStyleRule('padding', '0 7.5px');
     expect(component2).toHaveStyleRule('cursor', 'not-allowed');
 

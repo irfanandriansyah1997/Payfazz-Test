@@ -10,7 +10,6 @@ import Style from './style/style';
 import { DefaultPropsInterface } from '@/interfaces/object.interface';
 
 export interface TextProps extends DefaultPropsInterface {
-    as?: any;
     TextType: string;
     fontWeight?: string;
     color?: string;
