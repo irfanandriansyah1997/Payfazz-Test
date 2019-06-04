@@ -1,0 +1,147 @@
+@import '@/styles/scss/import.scss';
+
+.ui-pages-login {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 100%;
+    width: 100%;
+
+    @include padding(all, 20px);
+
+    &__background {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        left: 0;
+        right: 0;
+        top: 0;
+        z-index: -1;
+
+        @include background-color(#f5f8fa);
+
+        img {
+            width: 100%;
+            max-width: 400px;
+            height: 250px;
+            object-fit: contain;
+        }
+    }
+
+    > h1 {
+        @include margin(all, 0 0 30px);
+        @include font-color(text-light);
+
+        span {
+            @include margin-left(7.5px);
+            @include font-family('Avenir Next Ultra');
+            @include font-weight(200);
+        }
+    }
+
+    &__back {
+        text-decoration: none;
+
+        @include font-color(grey);
+        @include margin-bottom(5px);
+
+        &:hover {
+            @include font-color(grey-dark);
+        }
+
+        .ui-atomic-icon {
+            @include no-margin();
+        }
+    }
+
+    &__options-link {
+        display: inline-flex;
+        align-items: center;
+        flex-wrap: wrap;
+        text-align: center;
+        justify-content: center;
+        text-decoration: none;
+
+        @include margin(all, 0 auto);
+        @include font-face(
+            primary,
+            grey-dark,
+            base,
+            200,
+            normal,
+            none,
+            none,
+            20
+        );
+
+        p {
+            @include margin(all, 2.5px 0);
+            @include margin-left(5px);
+            @include border-bottom(1px, dashed, grey-darker);
+        }
+    }
+
+    &__action {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        @include margin-top(auto);
+
+        > button {
+            width: 100%;
+            background-image: -webkit-linear-gradient(
+                39deg,
+                rgba(62, 145, 214, 0.97),
+                #5e4fe2
+            );
+            background-image: -o-linear-gradient(
+                39deg,
+                rgba(62, 145, 214, 0.97),
+                #5e4fe2
+            );
+            background-image: linear-gradient(
+                39deg,
+                rgba(62, 145, 214, 0.97),
+                #5e4fe2
+            );
+
+            @include margin(all, 15px 0);
+        }
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+
+        @include margin-top(180px);
+
+        > p {
+            width: 100%;
+
+            @include margin(all, 0 0 10px);
+        }
+
+        .ui-atomic-textview {
+            width: 100%;
+
+            @include margin(all, 10px 0);
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .ui-pages-login {
+        &__form {
+            @include margin-top(160px);
+        }
+    }
+}
