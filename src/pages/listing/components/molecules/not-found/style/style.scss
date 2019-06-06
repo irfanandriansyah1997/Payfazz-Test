@@ -2,10 +2,15 @@
 
 .ui-molecules-not-found {
     position: absolute;
+    display: none;
+    opacity: 0;
     height: 100%;
     width: 100%;
     top: 0;
     left: 0;
+
+    @include padding-top(60px);
+    @include transition(0.31s cubic-bezier(0.7, 0.3, 0, 1));
 
     &__images {
         display: flex;
@@ -68,5 +73,31 @@
     img {
         max-width: 360px;
         width: 100%;
+    }
+
+    &.fade {
+        &-apear {
+            &.fade-appear-active {
+                display: block;
+            }
+        }
+
+        &-enter {
+            display: block;
+
+            &.fade-enter-active,
+            &-done {
+                display: block;
+            }
+        }
+
+        &-exit {
+            display: block;
+
+            &.fade-exit-active,
+            &-done {
+                display: block;
+            }
+        }
     }
 }

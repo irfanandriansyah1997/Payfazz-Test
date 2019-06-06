@@ -4,3 +4,8 @@ export interface ListingInterface {
     price: number;
     unitCost: number;
 }
+
+export interface ResponseListingRest {
+    count: number;
+    data: ListingInterface[];
+}

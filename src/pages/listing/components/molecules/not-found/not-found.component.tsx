@@ -5,6 +5,8 @@
  */
 
 import * as React from 'react';
+import * as PropTypes from 'prop-types';
+import { CSSTransition } from 'react-transition-group';
 import { DefaultPropsInterface } from '@/interfaces/object.interface';
 
 /**
@@ -16,39 +18,59 @@ import Icon from '@/component/atoms/icon/icon.component';
 
 import './style/style.scss';
 
+interface NotFoundInterface extends DefaultPropsInterface {
+    show: boolean;
+}
 
-class NotFound extends React.PureComponent<DefaultPropsInterface> {
+class NotFound extends React.PureComponent<NotFoundInterface> {
+    static propTypes = {
+        show: PropTypes.bool
+    };
+
+    static defaultProps = {
+        show: false
+    }
+
     render() {
+        const { show } = this.props;
+
         return (
-            <div className="ui-molecules-not-found">
-                <div className="ui-molecules-not-found__images">
-                    <img
-                        src="https://i.ibb.co/tcnt8qB/not-found.png"
-                        alt="Not Found"
-                    />
-                    <Text
-                        TextType="h1"
-                        align="center"
-                        as="h1"
-                    >
-                        Not Found
-                    </Text>
-                    <Text
-                        align="center"
-                        color="#636d7a"
-                    >
-                        Oops your listing is not found
-                    </Text>
+            <CSSTransition
+                in={show}
+                appear
+                timeout={600}
+                classNames="fade"
+            >
+                <div className="ui-molecules-not-found">
+                    <div className="ui-molecules-not-found__images">
+                        <img
+                            src="https://i.ibb.co/tcnt8qB/not-found.png"
+                            alt="Not Found"
+                        />
+                        <Text
+                            TextType="h1"
+                            align="center"
+                            as="h1"
+                        >
+                            Not Found
+                        </Text>
+                        <Text
+                            align="center"
+                            color="#636d7a"
+                        >
+                            Oops your listing is not found
+                        </Text>
+                    </div>
+                    <div className="ui-molecules-not-found__content">
+                        <Button
+                            buttonType="primary"
+                        >
+                            <Icon>add</Icon>
+                            Create New Listing
+                        </Button>
+                    </div>
                 </div>
-                <div className="ui-molecules-not-found__content">
-                    <Button
-                        buttonType="primary"
-                    >
-                        <Icon>add</Icon>
-                        Create New Listing
-                    </Button>
-                </div>
-            </div>
+            </CSSTransition>
         );
     }
 }
