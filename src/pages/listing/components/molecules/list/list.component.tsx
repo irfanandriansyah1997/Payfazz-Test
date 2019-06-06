@@ -17,6 +17,7 @@ import ButtonFAB from '@/component/atoms/button-fab/button-fab.component';
 interface ListInterface extends DefaultPropsInterface {
     show: boolean;
     data: ListingInterface[];
+    onCreate: () => void;
 }
 
 class List extends React.PureComponent<ListInterface> {
@@ -27,16 +28,18 @@ class List extends React.PureComponent<ListInterface> {
             name: PropTypes.string,
             price: PropTypes.number,
             unitCost: PropTypes.number
-        }))
+        })),
+        onCreate: PropTypes.func
     };
 
     static defaultProps = {
         show: false,
-        data: []
+        data: [],
+        onCreate: () => {}
     }
 
     render() {
-        const { show, data } = this.props;
+        const { show, data, onCreate } = this.props;
 
         return (
             <CSSTransition
@@ -60,6 +63,7 @@ class List extends React.PureComponent<ListInterface> {
                     <ButtonFAB
                         buttonType="secondary"
                         shadow
+                        onClick={onCreate}
                     >
                         add
                     </ButtonFAB>

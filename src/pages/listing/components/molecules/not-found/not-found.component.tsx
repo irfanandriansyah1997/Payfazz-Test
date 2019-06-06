@@ -20,19 +20,22 @@ import './style/style.scss';
 
 interface NotFoundInterface extends DefaultPropsInterface {
     show: boolean;
+    onCreate: () => void;
 }
 
 class NotFound extends React.PureComponent<NotFoundInterface> {
     static propTypes = {
-        show: PropTypes.bool
+        show: PropTypes.bool,
+        onCreate: PropTypes.func
     };
 
     static defaultProps = {
-        show: false
+        show: false,
+        onCreate: () => {}
     }
 
     render() {
-        const { show } = this.props;
+        const { show, onCreate } = this.props;
 
         return (
             <CSSTransition
@@ -64,6 +67,7 @@ class NotFound extends React.PureComponent<NotFoundInterface> {
                     <div className="ui-molecules-not-found__content">
                         <Button
                             buttonType="primary"
+                            onClick={onCreate}
                         >
                             <Icon>add</Icon>
                             Create New Listing
