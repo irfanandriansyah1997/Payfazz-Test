@@ -22,7 +22,6 @@ const GettingStartedPage = () => (
             <span>Listing</span>
         </Text>
         <Text
-            TextType="meta"
             align="center"
             color="#636d7a"
         >

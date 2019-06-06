@@ -48,7 +48,12 @@ export default function formValidation(
                         key: string,
                         val: string,
                         specification: any
-                    ) => this.validateMin(key, val, specification)
+                    ) => this.validateMin(key, val, specification),
+                    rest: (
+                        key: string,
+                        val: string,
+                        specification: any
+                    ) => this.validateRest(key, val, specification)
                 },
                 error: ''
             };
@@ -63,17 +68,33 @@ export default function formValidation(
         validate(key: string, value: string): ValidationRulesResult {
             const { rulesField, validationRules } = this.state;
             const field = rulesField[key];
-            const validateRequired = validationRules.required(field.name, value, field.required);
-            const validateMinText = validationRules.min(field.name, value, field.min);
 
-            if (validateRequired.code === 500) {
-                this.setState({ error: validateRequired.message });
-                return validateRequired;
+            if (key !== 'rest') {
+                const validateRequired = validationRules.required(
+                    field.name,
+                    value,
+                    field.required
+                );
+                const validateMinText = validationRules.min(field.name, value, field.min);
+
+                if (validateRequired.code === 500) {
+                    this.setState({ error: validateRequired.message });
+                    return validateRequired;
+                }
+
+                if (validateMinText.code === 500) {
+                    this.setState({ error: validateMinText.message });
+                    return validateMinText;
+                }
             }
 
-            if (validateMinText.code === 500) {
-                this.setState({ error: validateMinText.message });
-                return validateMinText;
+            if (key === 'rest') {
+                this.setState({ error: value });
+
+                return {
+                    code: 500,
+                    message: value
+                };
             }
 
             this.setState({ error: '' });
@@ -110,6 +131,15 @@ export default function formValidation(
             };
         }
 
+        validateRest(key: string, val: string, specification: any): ValidationRulesResult {
+            const valid = val.length > specification;
+
+            return {
+                code: valid ? 200 : 500,
+                message: valid ? '' : `Oops min field ${key} is ${specification} character`
+            };
+        }
+
         render() {
             const { error } = this.state;
 
@@ -118,6 +148,7 @@ export default function formValidation(
                     validate={this.validate}
                     error={error}
                     onResetValidate={this.onResetValidate}
+                    {...this.props}
                 />
             );
         }

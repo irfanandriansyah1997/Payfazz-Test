@@ -104,6 +104,7 @@ module.exports = {
         'react/jsx-indent': [1, 4],
         "space-infix-ops": [0],
         '@typescript-eslint/no-var-requires': 0,
+        '@typescript-eslint/indent': 0,
         '@typescript-eslint/camelcase': 0,
         '@typescript-eslint/no-unused-vars': 0,
         '@typescript-eslint/explicit-member-accessibility': 0,
