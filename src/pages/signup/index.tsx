@@ -18,11 +18,17 @@ import Snackbars from '@/component/atoms/snackbars/snackbars.component';
 import { DefaultPropsInterface } from '@/interfaces/object.interface';
 import FormValidation from '@/helper/validation.helper';
 import { FieldRulesObject, ValidationRulesResult } from '@/helper/validation.helper';
+import AuthService from '@/services/auth.service';
+import { AuthInterface } from '@/interfaces/auth.interface';
+import { setLogin } from '@/action/auth.action';
+import { connect } from 'react-redux';
 
-interface LoginPageProps extends DefaultPropsInterface {
+interface RegisterPageProps extends DefaultPropsInterface {
     validate: (key: string, value: string) => ValidationRulesResult;
     onResetValidate: () => void;
     error: string;
+    login: (option: AuthInterface) => void;
+    history: any;
 }
 
 const Rules: FieldRulesObject = {
@@ -38,6 +44,10 @@ const Rules: FieldRulesObject = {
     }
 };
 
+const mapDispatchToProps = (dispatch: any) => ({
+    login: (option: AuthInterface) => dispatch(setLogin(option))
+});
+
 export interface StateTypes {
     email: string;
     password: string;
@@ -45,14 +55,19 @@ export interface StateTypes {
     showedError: boolean;
 }
 
-export class SignupPage extends React.PureComponent<LoginPageProps, StateTypes> {
+export class SignupPage extends React.PureComponent<RegisterPageProps, StateTypes> {
+    service: AuthService;
+
     static propTypes = {
         validate: PropTypes.func.isRequired,
         error: PropTypes.string.isRequired,
-        onResetValidate: PropTypes.func.isRequired
+        onResetValidate: PropTypes.func.isRequired,
+        history: PropTypes.shape({
+            push: PropTypes.func
+        }).isRequired
     }
 
-    static getDerivedStateFromProps(props: LoginPageProps, state: StateTypes) {
+    static getDerivedStateFromProps(props: RegisterPageProps, state: StateTypes) {
         if (props.error !== state.error) {
             return {
                 error: props.error,
@@ -63,7 +78,7 @@ export class SignupPage extends React.PureComponent<LoginPageProps, StateTypes> 
         return null;
     }
 
-    constructor(props: LoginPageProps) {
+    constructor(props: RegisterPageProps) {
         super(props);
 
         this.state = {
@@ -73,8 +88,8 @@ export class SignupPage extends React.PureComponent<LoginPageProps, StateTypes> 
             error: ''
         };
         this.validate = this.validate.bind(this);
+        this.service = new AuthService();
     }
-
 
     componentDidMount() {
         document.title = 'Signup Page';
@@ -92,7 +107,32 @@ export class SignupPage extends React.PureComponent<LoginPageProps, StateTypes> 
             return validate('password', password);
         }
 
-        return true;
+        return this.service.register(
+            { email, password },
+            (_) => this.login({
+                email,
+                password
+            }),
+            (error) => validate('rest', error)
+        );
+    }
+
+    login(param: AuthInterface) {
+        const { validate, history, login } = this.props;
+
+        return this.service.login(
+            param,
+            (token) => {
+                login({
+                    ...param,
+                    token,
+                    isLogin: true
+                });
+
+                history.push('/listing');
+            },
+            (error) => validate('rest', error)
+        );
     }
 
     render(): React.ReactNode {
@@ -188,4 +228,7 @@ export class SignupPage extends React.PureComponent<LoginPageProps, StateTypes> 
     }
 }
 
-export default FormValidation(SignupPage, Rules);
+export default connect(
+    null,
+    mapDispatchToProps
+)(FormValidation(SignupPage, Rules));
