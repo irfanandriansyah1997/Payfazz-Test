@@ -151,7 +151,7 @@ const ButtonComponent = styled.button<ButtonProps>`
 
 
     ${(props) => css`
-        ${rounded('3px')}
+        ${rounded('50px')}
         ${getBackgroundStyle(props.theme.palette, props.buttonType, props.disable, props.outline)}
         ${getBorderStyle(props.theme.palette, props.buttonType, props.disable, props.noBorder)}
         ${getBoxShadowStyle(props.shadow)}

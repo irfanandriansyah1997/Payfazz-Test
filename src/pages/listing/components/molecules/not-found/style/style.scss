@@ -1,0 +1,72 @@
+@import '@/styles/scss/import.scss';
+
+.ui-molecules-not-found {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+
+    &__images {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        flex-direction: column;
+
+        @include background-color(#f4f7f8);
+        @include padding(all, 30px);
+
+        > h1 {
+            @include margin(all, 20px 0 0);
+            @include font-color(primary);
+
+            span {
+                @include margin-left(10px);
+                @include font-family('Avenir Next Ultra');
+                @include font-weight(200);
+            }
+        }
+
+        > p {
+            @include margin-top(5px);
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+
+        @include padding(all, 30px);
+
+        > button {
+            @include margin(all, auto);
+            @include transform-translateX(-50%);
+
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            width: calc(100% - 40px);
+            background-image: -webkit-linear-gradient(
+                39deg,
+                rgba(62, 145, 214, 0.97),
+                #5e4fe2
+            );
+            background-image: -o-linear-gradient(
+                39deg,
+                rgba(62, 145, 214, 0.97),
+                #5e4fe2
+            );
+            background-image: linear-gradient(
+                39deg,
+                rgba(62, 145, 214, 0.97),
+                #5e4fe2
+            );
+        }
+    }
+
+    img {
+        max-width: 360px;
+        width: 100%;
+    }
+}
