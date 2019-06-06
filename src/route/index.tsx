@@ -16,27 +16,51 @@ const AppRouter = () => (
         <Route
             exact
             path="/"
-            component={AuthHelper(GettingStarted, false)}
+            component={AuthHelper(
+                GettingStarted,
+                false,
+                'Getting Started'
+            )}
         />
         <Route
             path="/getting-started"
-            component={AuthHelper(GettingStarted, false)}
+            component={AuthHelper(
+                GettingStarted,
+                false,
+                'Getting Started'
+            )}
         />
         <Route
             path="/listing"
-            component={AuthHelper(Listing, true)}
+            component={AuthHelper(
+                Listing,
+                true,
+                'Product Page'
+            )}
         />
         <Route
             path="/login"
-            component={AuthHelper(Login, false)}
+            component={AuthHelper(
+                Login,
+                false,
+                'Login Page'
+            )}
         />
         <Route
             path="/logout"
-            component={AuthHelper(Logout, true)}
+            component={AuthHelper(
+                Logout,
+                true,
+                'Logout'
+            )}
         />
         <Route
             path="/signup"
-            component={AuthHelper(Signup, false)}
+            component={AuthHelper(
+                Signup,
+                false,
+                'Register Page'
+            )}
         />
     </Router>
 );

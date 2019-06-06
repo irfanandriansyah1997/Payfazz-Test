@@ -93,11 +93,6 @@ export class LoginPage extends React.PureComponent<LoginPageProps, StateTypes> {
         this.service = new AuthService();
     }
 
-
-    componentDidMount() {
-        document.title = 'Login Page';
-    }
-
     validate(): any {
         const { email, password } = this.state;
         const { validate, login, history } = this.props;
@@ -134,6 +129,7 @@ export class LoginPage extends React.PureComponent<LoginPageProps, StateTypes> {
             <div className="ui-pages-login">
                 <Snackbars
                     show={showedError}
+                    type="error"
                     onCloseDialog={() => this.setState({ showedError: false }, () => {
                         onResetValidate();
                     })}
