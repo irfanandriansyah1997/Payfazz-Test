@@ -73,14 +73,14 @@ class DeleteDialog extends React.PureComponent<DeleteDialogProps> {
                             shadow
                             onClick={onAccept}
                         >
-                            Yes, Delete Listing
+                            Yes, Delete
                         </Button>
                         <Button
                             buttonType="tertiary"
                             noBorder
                             onClick={onCancel}
                         >
-                            No, Keep Listing
+                            No, Keep
                         </Button>
                     </div>
                 </div>

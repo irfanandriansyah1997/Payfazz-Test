@@ -17,7 +17,7 @@ import Text from '@/component/atoms/text/text.component';
 import './style/style.scss';
 
 export interface CardListingProps extends ListingInterface {
-    onClick: (id: number) => any;
+    onClick: (data: ListingInterface) => void;
 }
 
 class CardListing extends React.PureComponent<CardListingProps> {
@@ -36,9 +36,21 @@ class CardListing extends React.PureComponent<CardListingProps> {
     }
 
     onClick() {
-        const { onClick, id } = this.props;
+        const {
+            onClick,
+            id,
+            name,
+            price,
+            unitCost
+        } = this.props;
+        const data: ListingInterface = {
+            id,
+            name,
+            price,
+            unitCost
+        };
 
-        onClick(id);
+        onClick(data);
     }
 
     get metaTitle() {

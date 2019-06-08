@@ -13,11 +13,13 @@ import { ListingInterface } from '@/interfaces/listing.interface';
 import './style/style.scss';
 import CardListing from '@/component/molecules/card-listing/card-listing.component';
 import ButtonFAB from '@/component/atoms/button-fab/button-fab.component';
+import Text from '@/component/atoms/text/text.component';
 
 interface ListInterface extends DefaultPropsInterface {
     show: boolean;
     data: ListingInterface[];
     onCreate: () => void;
+    onEdit: (data: ListingInterface) => void;
 }
 
 class List extends React.PureComponent<ListInterface> {
@@ -29,7 +31,8 @@ class List extends React.PureComponent<ListInterface> {
             price: PropTypes.number,
             unitCost: PropTypes.number
         })),
-        onCreate: PropTypes.func
+        onCreate: PropTypes.func,
+        onEdit: PropTypes.func.isRequired
     };
 
     static defaultProps = {
@@ -39,7 +42,12 @@ class List extends React.PureComponent<ListInterface> {
     }
 
     render() {
-        const { show, data, onCreate } = this.props;
+        const {
+            show,
+            data,
+            onCreate,
+            onEdit
+        } = this.props;
 
         return (
             <CSSTransition
@@ -49,17 +57,48 @@ class List extends React.PureComponent<ListInterface> {
                 classNames="fade"
             >
                 <div className="ui-molecules-list">
-                    <div className="ui-molecules-list__content">
-                        {
-                            data.map((item: ListingInterface) => (
-                                <CardListing
-                                    key={item.id}
-                                    onClick={_ => {}}
-                                    {...item}
-                                />
-                            ))
-                        }
-                    </div>
+                    {
+                        data.length > 0
+                            ? (
+                                <div className="ui-molecules-list__content">
+                                    {
+                                        data.map((item: ListingInterface) => (
+                                            <CardListing
+                                                key={item.id}
+                                                {...item}
+                                                onClick={onEdit}
+                                            />
+                                        ))
+                                    }
+                                </div>
+                            )
+                            : (
+                                <div
+                                    className="ui-molecules-not-found showed"
+                                >
+                                    <div className="ui-molecules-not-found__images">
+                                        <img
+                                            src="https://i.ibb.co/tcnt8qB/not-found.png"
+                                            alt="Not Found"
+                                        />
+                                        <Text
+                                            TextType="h1"
+                                            align="center"
+                                            as="h1"
+                                        >
+                                            Not Found
+                                        </Text>
+                                        <Text
+                                            align="center"
+                                            color="#636d7a"
+                                        >
+                                            Oops your listing is not found
+                                        </Text>
+                                    </div>
+                                </div>
+                            )
+
+                    }
                     <ButtonFAB
                         buttonType="secondary"
                         shadow

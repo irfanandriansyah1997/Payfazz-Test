@@ -12,6 +12,12 @@
     @include padding-top(60px);
     @include transition(0.31s cubic-bezier(0.7, 0.3, 0, 1));
 
+    &.showed {
+        display: block;
+        opacity: 1;
+        transition: initial;
+    }
+
     &__images {
         display: flex;
         align-items: center;
@@ -96,7 +102,7 @@
 
             &.fade-exit-active,
             &-done {
-                display: block;
+                display: none;
             }
         }
     }

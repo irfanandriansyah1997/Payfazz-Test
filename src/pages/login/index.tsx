@@ -18,8 +18,8 @@ import Button from '@/component/atoms/button/button.component';
 import Textview from '@/component/atoms/textview/textview.component';
 import Snackbars from '@/component/atoms/snackbars/snackbars.component';
 import { DefaultPropsInterface } from '@/interfaces/object.interface';
-import FormValidation from '@/helper/validation.helper';
 import AuthService from '@/services/auth.service';
+import FormValidation from '@/helper/validation.helper';
 import { FieldRulesObject, ValidationRulesResult } from '@/helper/validation.helper';
 import { AuthInterface } from '@/interfaces/auth.interface';
 import { setLogin } from '@/action/auth.action';
@@ -36,12 +36,14 @@ const Rules: FieldRulesObject = {
     email: {
         min: 0,
         name: 'Email',
-        required: true
+        required: true,
+        minValue: false
     },
     password: {
         min: 8,
         name: 'Password',
-        required: true
+        required: true,
+        minValue: false
     }
 };
 

@@ -7,7 +7,7 @@
     height: 100%;
     top: 0;
     left: 0;
-    z-index: 200;
+    z-index: 200 !important;
 
     @include transition(0.31s cubic-bezier(0.7, 0.3, 0, 1));
 

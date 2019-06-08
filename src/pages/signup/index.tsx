@@ -35,12 +35,14 @@ const Rules: FieldRulesObject = {
     email: {
         min: 0,
         name: 'Email',
-        required: true
+        required: true,
+        minValue: false
     },
     password: {
         min: 8,
         name: 'Password',
-        required: true
+        required: true,
+        minValue: false
     }
 };
 
