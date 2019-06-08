@@ -1,0 +1,71 @@
+@import '@/styles/scss/import.scss';
+
+.ui-molecules-header {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 200;
+    width: 100%;
+
+    @include padding(all, 10px 10px);
+    @include background-color(white);
+    @include box-shadow-multi(
+        0 0 1px 0 rgba(black, 0.05),
+        0 2px 3px 0 rgba(black, 0.05)
+    );
+
+    i {
+        @include font-color(text-light);
+    }
+
+    &__logo {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include rounded(50%);
+        @include font-color(white);
+        @include font-size(24px);
+        @include background-color(rgba(get-color(primary), 0.35));
+    }
+
+    &__form {
+        position: relative;
+        display: flex;
+        overflow: hidden;
+        flex: 0 0 calc(100% - 90px);
+
+        @include background-color(grey-lighter);
+        @include rounded(50px);
+
+        input {
+            height: 40px;
+            letter-spacing: 0.25px;
+
+            @include padding(all, 5px 50px 5px 20px);
+            @include font-face(
+                primary,
+                text-light,
+                16px,
+                400,
+                normal,
+                none,
+                none,
+                18
+            );
+            @include no-border();
+            @include background-color(transparent);
+        }
+
+        label {
+            position: absolute;
+            top: 50%;
+            right: 5px;
+
+            @include transform-translateY(-50%);
+        }
+    }
+}

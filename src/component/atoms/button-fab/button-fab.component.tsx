@@ -11,7 +11,7 @@ import Icon from '@/component/atoms/icon/icon.component';
 
 import Style from './style/style';
 
-class Button extends React.Component<ButtonProps> {
+class ButtonFAB extends React.Component<ButtonProps> {
     static propTypes = {
         disable: PropTypes.bool,
         display: PropTypes.string,
@@ -55,4 +55,4 @@ class Button extends React.Component<ButtonProps> {
     }
 }
 
-export default Button;
+export default ButtonFAB;

@@ -20,7 +20,7 @@ const SnackbarComponent = styled.div<AlertDialogStylePropTypes>`
     left: 0;
     width: 100%;
     padding: 10px;
-    z-index: 100;
+    z-index: 300;
 
     ${({ type, theme }) => css`
         ${backgroundColor(theme.palette[type === 'default' ? 'primary' : 'secondary'][0])}

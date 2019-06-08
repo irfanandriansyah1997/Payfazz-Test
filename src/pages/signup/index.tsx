@@ -35,12 +35,14 @@ const Rules: FieldRulesObject = {
     email: {
         min: 0,
         name: 'Email',
-        required: true
+        required: true,
+        minValue: false
     },
     password: {
         min: 8,
         name: 'Password',
-        required: true
+        required: true,
+        minValue: false
     }
 };
 
@@ -91,10 +93,6 @@ export class SignupPage extends React.PureComponent<RegisterPageProps, StateType
         this.service = new AuthService();
     }
 
-    componentDidMount() {
-        document.title = 'Signup Page';
-    }
-
     validate(): any {
         const { email, password } = this.state;
         const { validate } = this.props;
@@ -143,6 +141,7 @@ export class SignupPage extends React.PureComponent<RegisterPageProps, StateType
             <div className="ui-pages-signup">
                 <Snackbars
                     show={showedError}
+                    type="error"
                     onCloseDialog={() => this.setState({ showedError: false }, () => {
                         onResetValidate();
                     })}

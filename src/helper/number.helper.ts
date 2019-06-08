@@ -11,3 +11,7 @@ export function abbreviateNumber(number: number): string {
 
     return `${scaled.toFixed(0)} ${suffix}`;
 }
+
+export function stringToCurrency(number: number): string {
+    return number.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+}

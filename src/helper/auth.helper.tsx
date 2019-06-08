@@ -6,19 +6,27 @@ import { Redirect } from 'react-router-dom';
 
 interface AuthHelperProps extends DefaultPropsInterface {
     isLogin: boolean;
+    token: string;
 }
 
 export default function AuthHelper(
     WrappedComponent: any,
-    isAuth: boolean = false
+    isAuth: boolean = false,
+    title: string = '-'
 ): any {
     const mapStateToProps = (state: any) => ({
-        isLogin: state.AuthReducer.isLogin
+        isLogin: state.AuthReducer.isLogin,
+        token: state.AuthReducer.token
     });
 
     class AuthHelperComponent extends React.Component<AuthHelperProps> {
         static propTypes = {
-            isLogin: PropTypes.bool.isRequired
+            isLogin: PropTypes.bool.isRequired,
+            token: PropTypes.string.isRequired
+        }
+
+        componentDidMount() {
+            document.title = title;
         }
 
         render() {

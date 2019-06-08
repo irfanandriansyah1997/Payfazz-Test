@@ -1,10 +1,12 @@
 import * as React from 'react';
 import { DefaultPropsInterface } from '@/interfaces/object.interface';
+import { stringToCurrency } from './number.helper';
 
 interface FieldRules {
     name: string;
     required: boolean;
     min: number;
+    minValue: number | boolean;
 }
 
 export interface FieldRulesObject {
@@ -49,6 +51,11 @@ export default function formValidation(
                         val: string,
                         specification: any
                     ) => this.validateMin(key, val, specification),
+                    minValue: (
+                        key: string,
+                        val: string,
+                        specification: any
+                    ) => this.validateMinValue(key, val, specification),
                     rest: (
                         key: string,
                         val: string,
@@ -76,6 +83,11 @@ export default function formValidation(
                     field.required
                 );
                 const validateMinText = validationRules.min(field.name, value, field.min);
+                const validateMinValue = validationRules.minValue(
+                    field.name,
+                    value,
+                    field.minValue
+                );
 
                 if (validateRequired.code === 500) {
                     this.setState({ error: validateRequired.message });
@@ -85,6 +97,11 @@ export default function formValidation(
                 if (validateMinText.code === 500) {
                     this.setState({ error: validateMinText.message });
                     return validateMinText;
+                }
+
+                if (validateMinValue.code === 500) {
+                    this.setState({ error: validateMinValue.message });
+                    return validateMinValue;
                 }
             }
 
@@ -128,6 +145,22 @@ export default function formValidation(
             return {
                 code: valid ? 200 : 500,
                 message: valid ? '' : `Oops min field ${key} is ${specification} character`
+            };
+        }
+
+        validateMinValue(key: string, val: string, specification: any): ValidationRulesResult {
+            if (specification === false) {
+                return {
+                    code: 200,
+                    message: ''
+                };
+            }
+
+            const valid = parseInt(val, 10) >= specification;
+
+            return {
+                code: valid ? 200 : 500,
+                message: valid ? '' : `Oops min field ${key} is ${stringToCurrency(specification)}`
             };
         }
 

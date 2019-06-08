@@ -43,6 +43,16 @@ class Textview extends React.PureComponent<TextviewProps, StateTypes> {
         onFocus: null
     }
 
+    static getDerivedStateFromProps(props: TextviewProps, state: StateTypes) {
+        if (props.value !== state.value) {
+            return {
+                value: props.value
+            };
+        }
+
+        return null;
+    }
+
     constructor(props: TextviewProps) {
         super(props);
 
