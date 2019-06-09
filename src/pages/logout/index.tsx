@@ -25,9 +25,14 @@ export class LogoutPage extends React.PureComponent<LogoutPageProps> {
         logout: PropTypes.func.isRequired,
         history: PropTypes.shape({
             push: PropTypes.func
-        }).isRequired
+        })
     }
 
+    static defaultProps = {
+        history: {
+            push: () => {}
+        }
+    }
 
     componentDidMount() {
         const { logout, history } = this.props;
