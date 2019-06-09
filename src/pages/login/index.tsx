@@ -59,8 +59,6 @@ export interface StateTypes {
 }
 
 export class LoginPage extends React.PureComponent<LoginPageProps, StateTypes> {
-    service: AuthService;
-
     static propTypes = {
         validate: PropTypes.func.isRequired,
         error: PropTypes.string.isRequired,
@@ -68,7 +66,13 @@ export class LoginPage extends React.PureComponent<LoginPageProps, StateTypes> {
         login: PropTypes.func.isRequired,
         history: PropTypes.shape({
             push: PropTypes.func
-        }).isRequired
+        })
+    }
+
+    static defaultProps = {
+        history: {
+            push: () => {}
+        }
     }
 
     static getDerivedStateFromProps(props: LoginPageProps, state: StateTypes) {
@@ -92,12 +96,11 @@ export class LoginPage extends React.PureComponent<LoginPageProps, StateTypes> {
             error: ''
         };
         this.validate = this.validate.bind(this);
-        this.service = new AuthService();
     }
 
     validate(): any {
         const { email, password } = this.state;
-        const { validate, login, history } = this.props;
+        const { validate } = this.props;
 
         if (validate('email', email).code === 500) {
             return validate('email', email);
@@ -107,9 +110,16 @@ export class LoginPage extends React.PureComponent<LoginPageProps, StateTypes> {
             return validate('password', password);
         }
 
-        return this.service.login(
+        return this.doAuth();
+    }
+
+    doAuth() {
+        const { email, password } = this.state;
+        const { validate, login, history } = this.props;
+
+        return AuthService.login(
             { email, password },
-            (token) => {
+            (token: string) => {
                 login({
                     email,
                     password,
@@ -119,7 +129,7 @@ export class LoginPage extends React.PureComponent<LoginPageProps, StateTypes> {
 
                 history.push('/listing');
             },
-            (error) => validate('rest', error)
+            (error: any) => validate('rest', error)
         );
     }
 

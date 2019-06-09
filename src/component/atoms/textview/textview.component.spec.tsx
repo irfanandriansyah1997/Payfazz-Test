@@ -104,4 +104,16 @@ describe('Testing textview component in atomic component ', () => {
         expect(textview.state('stateType')).toBe('password');
         expect(textview.find('.ui-atomic-textview__input').prop('type')).toBe('password');
     });
+
+    it('Test render textview if props value is change', () => {
+        const textview = mount(<Textview
+            type="text"
+            value="this is text"
+            name="username"
+        />);
+
+        expect(textview.state('value')).toBe('this is text');
+        textview.setProps({ value: 'text' });
+        expect(textview.state('value')).toBe('text');
+    });
 });
