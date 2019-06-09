@@ -8,27 +8,42 @@ import * as React from 'react';
 import { mount } from 'enzyme';
 import { ThemeProvider } from 'styled-components';
 import { HashRouter as Router } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import configureStore from '@/reducers';
 
-import Page, { SignupPage } from './index';
+import Signup, { SignupPage } from './index';
 import Textview from '@/component/atoms/textview/textview.component';
 import Button from '@/component/atoms/button/button.component';
 import Icon from '@/component/atoms/icon/icon.component';
 import Snackbar from '@/component/atoms/snackbars/snackbars.component';
 import Theme from '@/component/themes/default';
+import AuthHelper from '@/helper/auth.helper';
 
 import 'jest-styled-components';
 
 require('config/enzyme.config');
 
-const wrapper = mount(
-    <ThemeProvider theme={Theme}>
-        <Router>
-            <Page />
-        </Router>
-    </ThemeProvider>
+const { store, persistor } = configureStore();
+const Page = AuthHelper(
+    Signup,
+    false,
+    'Register Page'
 );
 
 function simulateEvent(event: string) {
+    const wrapper = mount(
+        <Provider store={store}>
+            <PersistGate loading={null} persistor={persistor}>
+                <ThemeProvider theme={Theme}>
+                    <Router>
+                        <Page />
+                    </Router>
+                </ThemeProvider>
+            </PersistGate>
+        </Provider>
+    );
+
     const page = wrapper.find(SignupPage).at(0);
     const field = page.find(Textview);
     const email = field
@@ -60,11 +75,15 @@ function simulateEvent(event: string) {
 describe('Testing page login', () => {
     it('Test page render properly', () => {
         mount(
-            <ThemeProvider theme={Theme}>
-                <Router>
-                    <Page />
-                </Router>
-            </ThemeProvider>
+            <Provider store={store}>
+                <PersistGate loading={null} persistor={persistor}>
+                    <ThemeProvider theme={Theme}>
+                        <Router>
+                            <Page />
+                        </Router>
+                    </ThemeProvider>
+                </PersistGate>
+            </Provider>
         );
     });
 
@@ -82,11 +101,15 @@ describe('Testing page login', () => {
 
     it('on click login but value is not defined from user', () => {
         const loginWrapper = mount(
-            <ThemeProvider theme={Theme}>
-                <Router>
-                    <Page />
-                </Router>
-            </ThemeProvider>
+            <Provider store={store}>
+                <PersistGate loading={null} persistor={persistor}>
+                    <ThemeProvider theme={Theme}>
+                        <Router>
+                            <Page />
+                        </Router>
+                    </ThemeProvider>
+                </PersistGate>
+            </Provider>
         );
 
         const page = loginWrapper.find(SignupPage).at(0);

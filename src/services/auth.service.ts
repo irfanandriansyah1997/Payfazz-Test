@@ -3,7 +3,7 @@ import { DefaultConfigAxios } from '@/helper/http.helper';
 import { AuthInterface } from '@/interfaces/auth.interface';
 
 class AuthService {
-    login(
+    static login(
         param: AuthInterface,
         onSuccess: (token: string) => void,
         onError: (message: string) => void

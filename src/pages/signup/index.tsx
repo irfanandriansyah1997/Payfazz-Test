@@ -66,7 +66,13 @@ export class SignupPage extends React.PureComponent<RegisterPageProps, StateType
         onResetValidate: PropTypes.func.isRequired,
         history: PropTypes.shape({
             push: PropTypes.func
-        }).isRequired
+        })
+    }
+
+    static defaultProps = {
+        history: {
+            push: () => {}
+        }
     }
 
     static getDerivedStateFromProps(props: RegisterPageProps, state: StateTypes) {
@@ -118,7 +124,7 @@ export class SignupPage extends React.PureComponent<RegisterPageProps, StateType
     login(param: AuthInterface) {
         const { validate, history, login } = this.props;
 
-        return this.service.login(
+        return AuthService.login(
             param,
             (token) => {
                 login({
