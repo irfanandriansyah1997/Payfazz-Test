@@ -1,17 +1,14 @@
-<!doctype html><html><head><meta charset="utf-8"><title>Storybook</title><meta name="viewport" content="width=device-width,initial-scale=1"><style>html, body {
-    overflow: hidden;
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-  }</style><script>/* globals window */
-  /* eslint-disable no-underscore-dangle */
-  try {
-    if (window.parent !== window) {
-      window.__REACT_DEVTOOLS_GLOBAL_HOOK__ = window.parent.__REACT_DEVTOOLS_GLOBAL_HOOK__;
-      window.__VUE_DEVTOOLS_GLOBAL_HOOK__ = window.parent.__VUE_DEVTOOLS_GLOBAL_HOOK__;
-    }
-  } catch (e) {
-    // eslint-disable-next-line no-console
-    console.warn('unable to connect to parent frame for connecting dev tools');
-  }</script></head><body><div id="root"></div><script src="runtime~main.17da544d0ef88cbabfaf.bundle.js"></script><script src="vendors~main.7f7016a65ba412f15df8.bundle.js"></script><script src="main.239f4d0bec48cf8275fb.bundle.js"></script></body></html>
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Document</title><link href="https://public.urbanindo.com/fonts/Avenir/stylesheet.css" rel="preload" as="style"><link href="https://fonts.googleapis.com/icon?family=Roboto:300,400|Material+Icons" rel="preload" as="style"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css"><link href="https://public.urbanindo.com/fonts/Avenir/stylesheet.css" rel="stylesheet"><link href="https://fonts.googleapis.com/icon?family=Roboto:300,400|Material+Icons" rel="stylesheet"><link href="style/main.0a54394603772de98aba.css?0a54394603772de98aba" rel="stylesheet"><link as="style" href="style/main.0a54394603772de98aba.css" rel="preload"></head><body><div id="app"></div><script>(function() {
+                if ('serviceWorker' in navigator) {
+                    window.addEventListener('load', () => {
+                        navigator.serviceWorker
+                            .register('sw.js')
+                            .then((registration) => {
+                                console.log('SW registered: ', registration);
+                            })
+                            .catch((registrationError) => {
+                                console.log('SW registration failed: ', registrationError);
+                            });
+                    });
+                }
+            })();</script><script src="script/vendor.187df0af5379b8ddf295.chunk.bundle.js?0a54394603772de98aba"></script><script src="script/main.76e2eff2ba2fce1e9061.bundle.js?0a54394603772de98aba"></script></body></html>

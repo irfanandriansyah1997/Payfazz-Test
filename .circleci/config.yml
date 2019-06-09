@@ -123,9 +123,11 @@ jobs:
               cd ..
 
               mkdir -p /home/circleci/repo/static/img
+              yarn prod
               yarn build-storybook
 
-              cp -a storybook-docs/. out/.
+              cp -a dist/. out/.
+              cp -a storybook-docs/. out/storybook-docs
 
               mkdir -p out/.circleci && cp -a .circleci/. out/.circleci/.
               cd out
