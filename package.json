@@ -12,7 +12,7 @@
         "prod": "node_modules/.bin/webpack --config etc/webpack/webpack.config.production.js",
         "build-storybook": "build-storybook -c .storybook -o storybook-docs",
         "lint": "node_modules/.bin/eslint --ext .js,.jsx,.ts,.tsx src",
-        "test": "jest --verbose src",
+        "test": "jest -w 1 --verbose src",
         "storybook": "start-storybook -p 5000",
         "precommit-msg": "echo 'Pre-commit checks...' && exit 0",
         "precommit": "npm run lint"
