@@ -17,25 +17,25 @@
     &.fade {
         &-apear {
             &.fade-appear-active {
-                display: block;
+                display: block !important;
             }
         }
 
         &-enter {
-            display: block;
+            display: block !important;
 
             &.fade-enter-active,
             &-done {
-                display: block;
+                display: block !important;
             }
         }
 
         &-exit {
-            display: block;
+            display: block !important;
 
             &.fade-exit-active,
             &-done {
-                display: block;
+                display: block !important;
             }
         }
     }

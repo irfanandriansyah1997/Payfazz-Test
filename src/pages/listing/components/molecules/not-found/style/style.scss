@@ -13,7 +13,7 @@
     @include transition(0.31s cubic-bezier(0.7, 0.3, 0, 1));
 
     &.showed {
-        display: block;
+        display: block !important;
         opacity: 1;
         transition: initial;
     }
@@ -84,25 +84,25 @@
     &.fade {
         &-apear {
             &.fade-appear-active {
-                display: block;
+                display: block !important;
             }
         }
 
         &-enter {
-            display: block;
+            display: block !important;
 
             &.fade-enter-active,
             &-done {
-                display: block;
+                display: block !important;
             }
         }
 
         &-exit {
-            display: block;
+            display: block !important;
 
             &.fade-exit-active,
             &-done {
-                display: none;
+                display: none !important;
             }
         }
     }
